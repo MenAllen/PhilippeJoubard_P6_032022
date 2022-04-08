@@ -7,11 +7,11 @@ function getPhotographers() {
 
 async function displayData(photographers) {
 	const photographersSection = document.querySelector(".photographer_section");
+	photographersSection.innerHTML = "";
 
 	photographers.forEach((photographer) => {
-		const photographerModel = photographerFactory(photographer);
-		const userCardDOM = photographerModel.getUserCardDOM();
-		photographersSection.appendChild(userCardDOM);
+		const photographerModel = new Photographer(photographer);
+		photographersSection.innerHTML += photographerModel.userCardDOM;
 	});
 }
 
