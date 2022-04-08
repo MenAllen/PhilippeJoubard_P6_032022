@@ -1,10 +1,3 @@
-// récupère les données du fichier photographsers.json
-function getPhotographers() {
-	return fetch("../data/photographers.json")
-		.then(response => response.json())
-		.catch(err => { throw (`la requete API fetch a échoué: ${err}`); });
-}
-
 async function displayData(photographers) {
 	const photographersSection = document.querySelector(".photographer_section");
 	photographersSection.innerHTML = "";

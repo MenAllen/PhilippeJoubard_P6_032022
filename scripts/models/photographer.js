@@ -19,7 +19,7 @@ class Photographer {
 
   get userCardDOM() {
     return `
-      <a href="#" class="photographer_focus" aria-label="présentation du photographe ${this._name}">
+      <a href="/photographer.html?id=${this._id}" class="photographer_focus" aria-label="présentation du photographe ${this._name}">
         <article>
           <img src="../assets/photographers/${this._picture}" alt="le photographe ${this._name}"></img>
           <h2>${this._name}</h2>

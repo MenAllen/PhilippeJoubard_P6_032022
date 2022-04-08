@@ -1,10 +1,23 @@
 function photographerFactory(data) {
-    const { name, portrait, city, price, tagline, id } = data;
+    const { name, portrait, city, country, price, tagline, id } = data;
 
     const picture = `assets/photographers/${portrait}`;
+    const location = `${city}, ${country}`;
 
     // récupère lélément article avec les données name, city, tagline & price
     function getUserCardDOM() {
+        return `
+        <a href="#" class="photographer_focus" aria-label="présentation du photographe ${name}">
+          <article>
+            <img src="../assets/photographers/${picture}" alt="le photographe ${name}"></img>
+            <h2>${name}</h2>
+            <p class="location">${location}</p>
+            <p class="tagline">${tagline}</p>
+            <p class="price">${price}€/jour</p>
+          </article>
+        </a>
+         `
+/* 
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
@@ -22,8 +35,9 @@ function photographerFactory(data) {
         article.appendChild(pTagline);
         article.appendChild(pPrice);
         console.log(article);
-        return (article);
+        return (article);*/
     }
 
-    return { name, picture, city, price, tagline, id, getUserCardDOM }
+    return { name, picture, location, price, tagline, id, getUserCardDOM }
+
 }
