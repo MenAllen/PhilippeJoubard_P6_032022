@@ -30,4 +30,18 @@ class Photographer {
       </a>
        `
   }
+
+  get userData() {
+    return `
+      <div class="sumup">
+        <h2>${this._name}</h2>
+        <p class="location">${this.location}</p>
+        <p class="tagline">${this._tagline}</p>
+      </div>
+      <div class="contact">
+        <button>Contactez-moi</button>
+      </div>
+      <img src="../assets/photographers/${this._picture}" alt="le photographe ${this._name}"></img>
+     `
+  }
 }

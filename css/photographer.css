@@ -4,8 +4,61 @@
 
 .photograph-header {
     background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
+    height: 313px;
+    margin: 0 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.photograph-header .sumup {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin-left: 100px;
+}
+
+.photograph-header .sumup h2 {
+    color: #D3573C;
+    font-size: 64px;
+    margin-top: 50px;
+    margin-bottom:0;
+}
+
+.photograph-header .sumup .location {
+    color: #901C1C;
+    font-size: 24px;
+    margin: 0;
+}
+
+.photograph-header .sumup .tagline {
+    font-size: 18px;
+}
+
+.photograph-header .contact {
+    min-width: 270px;
+    align-self: center;
+}
+
+.photograph-header .contact button {
+    background-color:#901C1C;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    width: 170px;
+    height: 69px;
+}
+
+.photograph-header img {
+    border: 2px solid black;
+    border-radius: 50%;
+    align-self: center;
+    margin-right: 20px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }
 
 .contact_button {
