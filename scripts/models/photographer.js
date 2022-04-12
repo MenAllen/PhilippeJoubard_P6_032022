@@ -17,6 +17,10 @@ class Photographer {
     return `../assets/photographers/${this._picture}`
   }
 
+  get userTitle() {
+    return ` - ${this._name}`;
+  }
+
   get userCardDOM() {
     return `
       <a href="/photographer.html?id=${this._id}" class="photographer_focus" aria-label="présentation du photographe ${this._name}">
@@ -39,7 +43,7 @@ class Photographer {
         <p class="tagline">${this._tagline}</p>
       </div>
       <div class="contact">
-        <button>Contactez-moi</button>
+        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
       <img src="../assets/photographers/${this._picture}" alt="le photographe ${this._name}"></img>
      `

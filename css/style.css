@@ -81,8 +81,8 @@ h1 {
 }
 
 .photographer_focus:focus {
-    background-color: #d9b5ad;
-    border: 5px solid #D3573C;
+/*    background-color: #d9b5ad; */
+    border: 3px solid #D3573C;
     text-decoration: none;
 }
 
