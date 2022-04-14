@@ -2,7 +2,7 @@
 
 body {
     font-family: "DM Sans", sans-serif;
-    margin: 0;
+    margin: 0 15px;
 }
 
 /* Les caractéristiques du header selon la maquette */
@@ -20,10 +20,26 @@ h1 {
     margin-top: 44px;
 }
 
-.logo {
-    height: 50px;
-    margin-left: 100px;
+.aside {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
 }
+
+.feeder {
+    min-width: 40px;
+    height: 50px;
+    padding: 0;
+    text-decoration: none;
+    visibility: hidden;
+}
+
+.logo {
+    height: 60px;
+    padding: 3px;
+    text-decoration: none;
+}
+
 
 /*                          Section des photographes                                 */
 /* définit Les caractéristiques des 5 éléments du bloc photographe selon la maquette */
@@ -32,6 +48,7 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
+    margin-right: 20px;
 }
 
 .photographer_section article {
@@ -76,13 +93,13 @@ h1 {
     margin: 0 0 10px 0;
 }
 
-.photographer_focus {
+.photographers_focus {
     text-decoration: none;
 }
 
-.photographer_focus:focus {
-/*    background-color: #d9b5ad; */
-    border: 3px solid #D3573C;
+.photographers_focus:focus {
     text-decoration: none;
+    outline: 3px solid #901C1C;
 }
+
 

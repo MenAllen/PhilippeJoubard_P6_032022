@@ -21,9 +21,22 @@ class Photographer {
     return ` - ${this._name}`;
   }
 
+  get userName() {
+    return ` ${this._name}`
+  }
+
+  get computeTotalLikes() {
+    let sumLikes = 0;
+    const likes = document.querySelectorAll(".likesNumber");
+    likes.forEach( (like) => {sumLikes += Number(like.textContent)});
+
+    return sumLikes;
+  }
+
+  // Affiche une "carte de presentation" d'un photographe dans la page d'accueil
   get userCardDOM() {
     return `
-      <a href="/photographer.html?id=${this._id}" class="photographer_focus" aria-label="présentation du photographe ${this._name}">
+      <a href="/photographer.html?id=${this._id}" class="photographers_focus" aria-label="présentation du photographe ${this._name}">
         <article>
           <img src="../assets/photographers/${this._picture}" alt="le photographe ${this._name}"></img>
           <h2>${this._name}</h2>
@@ -35,6 +48,7 @@ class Photographer {
        `
   }
 
+  // Rappel des informations sur le photographe dans la page photographe
   get userData() {
     return `
       <div class="sumup">
@@ -43,9 +57,21 @@ class Photographer {
         <p class="tagline">${this._tagline}</p>
       </div>
       <div class="contact">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button id="contact_button" class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
       <img src="../assets/photographers/${this._picture}" alt="le photographe ${this._name}"></img>
      `
   }
+
+  // Affichage des likes et du taux journalier en bas de page photographe 
+  get userPanelPrice() {
+    return `
+      <div>
+        <p>${this.computeTotalLikes}</p>
+        <i class="fa fa-heart heart-"btn" aria-hidden="true"></i>
+      </div>
+      <p>${this._price} €/jour</p>
+    `
+  }
+
 }
