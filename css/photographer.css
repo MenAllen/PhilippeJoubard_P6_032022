@@ -223,7 +223,7 @@ form div {
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-    margin-bottom: 5px;
+/*    margin-bottom: 5px;*/
 }
 
 form input {
@@ -246,10 +246,34 @@ form input:focus,
     outline: 3px solid #901C1C;
 }
 
-/* input:invalid {
+ input:invalid {
     border: 2px solid red;
 }
   
 input:valid {
     border: 2px solid green;
-}*/
+}
+
+.formData[data-error]::after {
+	content: attr(data-error);
+	font-size: 1.2em;
+    font-weight: bold;
+    color: red;
+	display: block;
+	margin-top: 4px;
+	text-align: left;
+	line-height: 0.6;
+	opacity: 0;
+	transition: 0.3s;
+}
+.formData[data-error-visible="true"]::after {
+	opacity: 1;
+}
+.formData[data-error-visible="true"] .text-control {
+	border: 2px solid #e54858;
+}
+input[data-error]::after {
+	content: attr(data-error);
+	font-size: 0.4em;
+	color: red;
+}

@@ -26,7 +26,7 @@
     <header>
       <div class="aside">
         <div class="feeder"></div>
-        <a href="index.html" class="photographers_focus" title="Page d'accueil">
+        <a href="index.html" class="photographers_focus" title="Retour à l'accueil">
           <img src="assets/images/logo.png" class="logo" alt="logo de Fisheye"/>
         </a>
       </div>     
@@ -48,29 +48,29 @@
           <h2 class="modal_name">Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" onKeyPress="if (event.keyCode == 13) closeModal()" tabindex="0" alt="Fermeture du formulaire de contact"/>
         </header>
-				<form id="formulaire" name="formulaire de contact" methode="GET">
-          <div>
+				<form id="formulaire" name="formulaire de contact">
+          <div class="formData" data-error="Veuillez entrer au moins 2 caractères" data-error-visible="false">
             <label for="first">Prénom</label>
             <input type="text" id="first" name="first" minlength="2" required/>
           </div>
-          <div>
+          <div class="formData" data-error="Veuillez entrer au moins 2 caractères" data-error-visible="false">
             <label for="last">Nom</label>
             <input type="text" id="last" name="last" minlength="2" required/>
           </div>
-          <div>
+          <div class="formData" data-error="Veuillez respecter le format mail" data-error-visible="false">
             <label for="email">E-mail</label>
             <input type="email" id="email" name="email" placeholder="example@domaine.fr" required />
           </div>
-          <div>
+          <div class="formData" data-error="Veuillez respecter min 2 et max 255 caractères" data-error-visible="false">
             <label for="message">Votre message</label>
-            <textarea id="message" name="message" class="textarea" maxlength="255" rows="4" required></textarea>
+            <textarea id="message" name="message" class="textarea" minlength="2" maxlength="255" rows="4" required></textarea>
           </div>
-          <button type="submit" class="contact_button" >Envoyer</button>
+          <button type="submit" id="contact_button" class="contact_button" >Envoyer</button>
 				</form>
 			</div>
 		</div>
 
-    <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/contactForm.js"></script>    
     <script src="scripts/utils/APIfetch.js"></script>
     <script src="scripts/models/photographer.js"></script>
     <script src="scripts/models/media.js"></script>
