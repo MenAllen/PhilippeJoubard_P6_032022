@@ -58,8 +58,6 @@ function displayPhotographGallery(media, photograph) {
 
 
 async function init() {
-
-  console.log("photographer init");
   
   // Récupération de l'id x et de la liste des photographes via l'API
   const identifier = location.search.substring(1).split("&")[0].split("=")[1];
@@ -70,6 +68,8 @@ async function init() {
   
   displayPhotographHeader(selectedPhotograph);
   displayPhotographGallery(media, selectedPhotograph);
+
+  Lightbox.init();
 
 }
 

@@ -27,7 +27,7 @@ class MediaPhoto {
     return `
       <figure class="mediacard">
         <a href="#" tabindex="-1">
-          <img src="${this._directory}/${this._picture}" class="media_focus" tabindex="0" alt="La photo ${this._title}"/>
+          <img src="${this._directory}/${this._picture}" class="media_focus" tabindex="0" alt="${this._title}"/>
         </a>
         <figcaption>
           <p>${this._title}</p>
@@ -66,7 +66,7 @@ class MediaMovie {
     return `
       <figure class="mediacard">
         <a href="#" tabindex="-1">
-          <video src="${this._directory}/${this._movie}" class="media_focus" tabindex="0" type="video/mp4" controls alt="La vidéo ${this._title}"/>
+          <video src="${this._directory}/${this._movie}" class="media_focus" tabindex="0" type="video/mp4" controls alt="${this._title}"/>
         </a>
         <figcaption>
           <p>${this._title}</p>
