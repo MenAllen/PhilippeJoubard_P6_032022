@@ -11,4 +11,5 @@ Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
 4 Livraison étape 5 -> Afficher le contenu statique de la page photographe. Encart de prix en bas d'écran à renseigner
 5 Livraison étape 6 -> modale de contact
 6 Livraison étape 7 -> Lightbox pour images only + nav modale fleches clavier
+7 Livraison étape 8 -> Afficher et gérer les likes. Corrections video dans lightbox
 

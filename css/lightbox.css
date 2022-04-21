@@ -6,8 +6,8 @@
 	height: 100%;
 	background-color: rgba(252, 252, 252, 0.8);
 	z-index: 10;
-/*  animation: lightboxIn .5s; */
-  transition: opacity .3s; 
+  animation: lightboxIn .5s;
+  transition: opacity .3s;
 }
 
 .lightbox .fadeOut {
@@ -20,7 +20,7 @@
 	width: 24px;
 	height: 42px;
 	position: fixed;
-	right: 20px;
+	right: 40px;
 	top: 50%;
 	margin-top: -14px;
 	border: none;
@@ -39,19 +39,26 @@
 	height: 42px;
 	border: none;
 	position: fixed;
-	right: 20px;
+	right: 40px;
 	top: 20px;
 	z-index: 11;
 }
 
+.lightbox_close:focus,
+ .lightbox_next:focus,
+  .lightbox_previous:focus {
+    text-decoration: none;
+    outline: 3px solid #901C1C;   
+}
+
 .lightbox button {
-	opacity: 0.5;
+	opacity: 1;
 	cursor: pointer;
 	transition: opacity 0.3s;
 }
 
 .lightbox button:hover {
-	opacity: 1;
+	opacity: 0.5;
 }
 
 .lightbox_container {
@@ -63,10 +70,12 @@
   min-height: 100vh;
 }
 
-.lightbox_container img {
-	width: 630px;
-/*	height: auto; */
+.lightbox_container img,
+ .lightbox_container video {
+/*	width: 630px; */
   height: 540px;
+/*  width: 800px;
+  height: auto; */
   align-self: center;
   animation: lightboxIn .5s;
   object-fit: cover;

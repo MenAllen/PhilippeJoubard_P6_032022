@@ -57,7 +57,7 @@ class Photographer {
         <p class="tagline">${this._tagline}</p>
       </div>
       <div class="contact">
-        <button id="contact_button" class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button id="contact_button" class="contact_button" onclick="displayModal()" aria-label="contacter le photographe ${this._name}">Contactez-moi</button>
       </div>
       <img src="../assets/photographers/${this._picture}" alt="le photographe ${this._name}"></img>
      `
@@ -66,8 +66,8 @@ class Photographer {
   // Affichage des likes et du taux journalier en bas de page photographe 
   get userPanelPrice() {
     return `
-      <div>
-        <p>${this.computeTotalLikes}</p>
+      <div aria-label="Total likes est ${this.computeTotalLikes}, taux journalier ${this._price}">
+        <p id="totalLikes">${this.computeTotalLikes}</p>
         <i class="fa fa-heart heart-"btn" aria-hidden="true"></i>
       </div>
       <p>${this._price} €/jour</p>

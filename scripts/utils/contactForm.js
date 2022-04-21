@@ -10,8 +10,6 @@ const focusableContent = modal.querySelectorAll(focusableElements);
 const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
 const submitButton = document.getElementById("contact_button");
 
-const focusableItems = Array.from(focusableContent);
-
 document.addEventListener("keydown", function (e) {
 	let isTabPressed = e.key === "Tab" || e.keyCode === 9;
 
@@ -21,29 +19,7 @@ document.addEventListener("keydown", function (e) {
 		return;
 	}
 
-  // Si flèche en haut ou en bas, on passe au suivant
-  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-
-    // récupérer l'element focus  
-    let index = focusableItems.findIndex(elt => elt == modal.querySelector(":focus"));
-    let maxIndex = focusableItems.length - 1;
-
-    if (e.key === 'ArrowDown') {
-      if (index == maxIndex) {
-        index = 0;
-      } else
-       index++;
-    } else { // 'ArrowUp'
-      if (index == 0) {
-        index = maxIndex;
-      } else
-        index--;
-    }
-
-    focusableItems[index].focus();
-  }
-
-	if (!isTabPressed) {
+  if (!isTabPressed) {
 		// Si pas Tab et pas Escape, on sort
 		return;
 	}
@@ -55,7 +31,7 @@ document.addEventListener("keydown", function (e) {
 			e.preventDefault();
 		}
 	} else {
-		// Si tab key pressé
+		// Sinon
 		if (document.activeElement === lastFocusableElement) {
 			// Si on arrive au dernier element focusable, alors on remet le focus sur le premier
 			firstFocusableElement.focus(); 
@@ -98,6 +74,7 @@ submitButton.addEventListener("click", (event) => {
 	const message = document.getElementById("message");
 
 	if (prenom.validity.valid && nom.validity.valid && email.validity.valid && message.validity.valid) {
+		
 		console.log(`Message de ${prenom.value} ${nom.value} (${email.value}) :`);
 		console.log(`${message.value}`);
 

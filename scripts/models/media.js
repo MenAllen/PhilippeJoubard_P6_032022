@@ -25,15 +25,13 @@ class MediaPhoto {
 
   get userGalleryCard() {
     return `
-      <figure class="mediacard">
-        <a href="#" tabindex="-1">
-          <img src="${this._directory}/${this._picture}" class="media_focus" tabindex="0" alt="${this._title}"/>
-        </a>
+      <figure class="mediacard" aria-label="${this._title}">
+        <img src="${this._directory}/${this._picture}" class="media_focus" tabindex="0" alt="${this._title}"/>
         <figcaption>
           <p>${this._title}</p>
-          <div>
+          <div class="likesSection">
             <p class="likesNumber">${this._likes}</p>
-            <i class="fa fa-heart heart-btn" aria-hidden="true"></i>
+            <i class="fa fa-heart" aria-hidden="true"></i>
           </div>
         </figcaption>
       </figure>
@@ -64,15 +62,14 @@ class MediaMovie {
 
   get userGalleryCard() {
     return `
-      <figure class="mediacard">
-        <a href="#" tabindex="-1">
-          <video src="${this._directory}/${this._movie}" class="media_focus" tabindex="0" type="video/mp4" controls alt="${this._title}"/>
-        </a>
+      <figure class="mediacard" aria-label="${this._title}">
+        <video tabindex="0" src="${this._directory}/${this._movie}" aria-label="${this._title}" class="media_focus" alt="${this._title}">
+        </video>
         <figcaption>
           <p>${this._title}</p>
-          <div>
+          <div class="likesSection">
             <p class="likesNumber">${this._likes}</p>
-            <i class="fa fa-heart heart-btn" aria-hidden="true"></i>
+            <i class="fa fa-heart" aria-hidden="true"></i>
           </div>
         </figcaption>
       </figure>
