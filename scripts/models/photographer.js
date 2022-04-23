@@ -38,7 +38,7 @@ class Photographer {
     return `
       <a href="/photographer.html?id=${this._id}" class="photographers_focus" aria-label="présentation du photographe ${this._name}">
         <article role="document">
-          <img role="img" src="../assets/photographers/${this._picture}" alt="le photographe ${this._name}"></img>
+          <img role="img" src="assets/photographers/${this._picture}" alt="le photographe ${this._name}"></img>
           <h2>${this._name}</h2>
           <p class="location">${this.location}</p>
           <p class="tagline">${this._tagline}</p>
