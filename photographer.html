@@ -21,26 +21,24 @@
 	<body>
 		<!-- Header avec logo -->
 
-		<header>
-			<div class="aside">
-				<div class="feeder"></div>
-				<a href="index.html" class="photographers_focus" aria-label= "retour à l'accueil" title="Retour à l'accueil">
-					<img src="assets/images/logo.png" class="logo" alt="logo de Fisheye" />
-				</a>
-			</div>
+		<header role="banner">
+			<a href="index.html" class="photographers_focus" aria-label= "retour à l'accueil" title="Retour à l'accueil">
+				<img role="img" src="assets/images/logo.png" class="logo" alt="logo de Fisheye" />
+			</a>
 		</header>
 
 		<!-- Main body -->
-		<main id="main">
+		<main id="main" aria-hidden="false">
 			<!-- sections photograph pour afficher les réalisations du photographe -->
 			<section id="photograph-header" class="photograph-header"></section>
+			<section class="photograph-gallery-filter"></section>
 			<section class="photograph-gallery"></section>
 			<aside class="photograph-price-panel"></aside>
 		</main>
 
 		<!-- Formulaire de contact -->
-		<div id="contact_modal">
-			<div class="modal" role="dialog" aria-modal="true" document="" aria-label="Formulaire de contact">
+		<div id="contact_modal" aria-hidden="true">
+			<div class="modal" role="dialog" aria-label="Formulaire de contact">
 				<header>
 					<h2 class="modal_name">Contactez-moi</h2>
 					<img src="assets/icons/close.svg" onclick="closeModal()" onKeyPress="if (event.keyCode == 13) closeModal()" tabindex="0" alt="Fermeture du formulaire de contact" />
@@ -69,6 +67,7 @@
 
 		<!-- Lightbox -->
 
+		<!-- Scripts -->
 		<script src="/scripts/utils/contactForm.js"></script>
 		<script src="/scripts/utils/APIfetch.js"></script>
 		<script src="scripts/models/photographer.js"></script>

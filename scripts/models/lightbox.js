@@ -44,17 +44,18 @@ class Lightbox {
     this.loadImage(url);
     document.body.appendChild(this.element);
     this.initFocus();
+    console.log("contructor");
+    this.ariaHide(false);
     document.addEventListener('keydown', this.onKeyDown);
   }
 
   /**
-   * 
    * @param {*} url de l'image ou la video
    * @param {*} alt titre de l'image ou la video
    * @returns {HTMLElement} element à afficher
    */
   buildDOM() {
-    const dom = document.createElement("div");
+    const dom = document.createElement("div");    
     dom.classList.add("lightbox");
     dom.setAttribute("tabindex", "0");
 
@@ -62,7 +63,7 @@ class Lightbox {
         <button class="lightbox_close" aria-label="fermer le carroussel" ></button>
         <button class="lightbox_next" aria-label="image suivante" ></button>
         <button class="lightbox_previous" aria-label="image précédente" ></button>
-        <div class="lightbox_container" role="document" aria-label=""></div>`;
+        <div class="lightbox_container" role="document" aria-hidden="true" aria-label=""></div>`;
 
     dom.querySelector(".lightbox_close").addEventListener('click', this.close.bind(this));
     dom.querySelector(".lightbox_next").addEventListener('click', this.next.bind(this));
@@ -90,7 +91,9 @@ class Lightbox {
     } else if (url.endsWith(".mp4")) { //video
       const video = document.createElement("video");
       container.appendChild(video);
+      video.setAttribute("tabindex", "0");
       video.setAttribute("controls", "");
+      video.setAttribute("autoplay", "");
       video.src = url
     }
 
@@ -100,7 +103,7 @@ class Lightbox {
 
   /**
    *  Initialisation du premier et dernier element focusable
-   *   pour naviguer en boucle
+   *  pour naviguer en boucle
    */
   initFocus() {
 
@@ -115,6 +118,24 @@ class Lightbox {
   }
 
   /**
+   * accessibilité: gestion des aria-hidden
+   * @param {*} hideLightbox 
+   */
+  ariaHide(hideLightbox) {
+
+    const main = document.querySelector("main");
+    const lightbox = document.querySelector(".lightbox");
+
+    if (hideLightbox) {
+      main.setAttribute("aria-hidden", false);
+      lightbox.setAttribute("aria-hidden", true);
+    } else {
+      main.setAttribute("aria-hidden", true);
+      lightbox.setAttribute("aria-hidden", false);
+    }
+  }
+
+  /**
    * Ferme la lightbox avec effet
    * @param {MouseEvent | KeyboardEvent} e 
    */
@@ -122,6 +143,7 @@ class Lightbox {
     e.preventDefault();
     this.element.classList.add('fadeout')
     window.setTimeout(()=> {this.element.parentElement.removeChild(this.element), 500})
+    this.ariaHide(true);
     document.removeEventListener('keydown', this.onKeyDown)
   }
 
@@ -152,13 +174,9 @@ class Lightbox {
   }
 
   /**
+   * Gérer le focus tournant sur les 3 boutons avec Tab et Shiftkey
    * Sortir du light box si 'Escape' au clavier
    * Passer à image ou video suivante ou précédente si 'ArrowRight' ou 'ArrowLeft'
-   * @param {Keyboard event} e 
-   */
-
-  /**
-   * Gérer le focus tournant sur les 3 boutons avec Tab et Shiftkey 
    * @param {Keyboard event} e 
    */
   onKeyDown(e) {

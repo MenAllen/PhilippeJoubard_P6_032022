@@ -46,9 +46,15 @@ function displayModal() {
 	const form = document.getElementById("formulaire");
 	form.reset();
 
-	// Affichage de la modale
+	// Affichage de la modale et positionnement de aria-hidden
 	const modal = document.getElementById("contact_modal");
+	const main = document.querySelector("main");
+
+	console.log(modal);
+	
 	modal.style.display = "block";
+	modal.setAttribute("aria-hidden", false);
+	main.setAttribute("aria-hidden", true);
 
 	// Passage du focus au premier élément de la modale
 	firstFocusableElement.focus();
@@ -58,6 +64,12 @@ function displayModal() {
 function closeModal() {
 	const modal = document.getElementById("contact_modal");
 	modal.style.display = "none";
+
+	// repositionnement de aria-hidden
+	const main = document.querySelector("main");
+	
+	modal.setAttribute("aria-hidden", true);
+	main.setAttribute("aria-hidden", false);
 
 	const button = document.getElementById("contact_button");
 	button.focus();
