@@ -36,7 +36,7 @@ class Photographer {
   // Affiche une "carte de presentation" d'un photographe dans la page d'accueil
   get userCardDOM() {
     return `
-      <a href="/photographer.html?id=${this._id}" class="photographers_focus" aria-label="présentation du photographe ${this._name}">
+      <a href="./photographer.html?id=${this._id}" class="photographers_focus" aria-label="présentation du photographe ${this._name}">
         <article role="document">
           <img role="img" src="assets/photographers/${this._picture}" alt="le photographe ${this._name}"></img>
           <h2>${this._name}</h2>
@@ -51,7 +51,7 @@ class Photographer {
   // Rappel des informations sur le photographe dans la page photographe
   get userData() {
     return `
-      <div class="sumup">
+      <div class="profile">
         <h2>${this._name}</h2>
         <p class="location">${this.location}</p>
         <p class="tagline">${this._tagline}</p>
@@ -59,7 +59,7 @@ class Photographer {
       <div class="contact">
         <button id="contact_button" class="contact_button" onclick="displayModal()" aria-label="contacter le photographe ${this._name}">Contactez-moi</button>
       </div>
-      <img role="img" src="../assets/photographers/${this._picture}" alt="le photographe ${this._name}"></img>
+      <img role="img" src="assets/photographers/${this._picture}" alt="le photographe ${this._name}"></img>
      `
   }
 

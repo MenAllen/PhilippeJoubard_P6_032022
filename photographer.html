@@ -31,8 +31,21 @@
 		<main id="main" aria-hidden="false">
 			<!-- sections photograph pour afficher les réalisations du photographe -->
 			<section id="photograph-header" class="photograph-header"></section>
-			<section class="photograph-gallery-filter"></section>
+
+			<!-- section tri de la galerie de photos et videos du photographe -->
+			<section class="photograph-gallery-sort">
+				<p>Trier par</p>
+        <select name="Tri">
+          <option value="Popularité">Popularité</option>
+          <option value="Date">Date</option>
+          <option value="Titre">Titre</option>
+        </select>`;
+			</section>
+
+			<!-- section galerie des photos et videos du photographe concerné -->
 			<section class="photograph-gallery"></section>
+
+			<!-- panel de bas d'ecran avec nombre total de likes et taux journalier du photographe -->
 			<aside class="photograph-price-panel"></aside>
 		</main>
 
