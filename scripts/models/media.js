@@ -20,7 +20,7 @@ class MediaPhoto {
     if ( name.split("-") !== name ) {
       name = name.split("-").join(" ")
     }
-    this._directory = `../assets/photographers/${name}`
+    this._directory = `assets/photographers/${name}`
   }
 
   get userGalleryCard() {
@@ -57,7 +57,7 @@ class MediaMovie {
     if ( name.split("-") !== name ) {
       name = name.split("-").join(" ")
     }
-    this._directory = `../assets/photographers/${name}`
+    this._directory = `assets/photographers/${name}`
   }
 
   get userGalleryCard() {
