@@ -35,11 +35,11 @@
 			<!-- section tri de la galerie de photos et videos du photographe -->
 			<section class="photograph-gallery-sort">
 				<p>Trier par</p>
-        <select name="Tri">
+        <select id="photograph-gallery-select" name="Tri">
           <option value="Popularité">Popularité</option>
           <option value="Date">Date</option>
           <option value="Titre">Titre</option>
-        </select>`;
+        </select>
 			</section>
 
 			<!-- section galerie des photos et videos du photographe concerné -->
@@ -83,6 +83,7 @@
 		<!-- Scripts -->
 		<script src="scripts/utils/contactForm.js"></script>
 		<script src="scripts/utils/APIfetch.js"></script>
+    <script src="scripts/utils/sort.js"></script>
 		<script src="scripts/models/photographer.js"></script>
 		<script src="scripts/models/media.js"></script>
     <script src="scripts/models/lightbox.js"></script>

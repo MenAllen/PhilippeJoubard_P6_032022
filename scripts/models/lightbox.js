@@ -16,7 +16,6 @@ class Lightbox {
     // listener sur clic image ou video pour lancer la lightbox
     links.forEach(link => link.addEventListener('click', e => {
       e.preventDefault();
-      console.log("click");
       new Lightbox(e.currentTarget.getAttribute('src'), images)
     }));
 
@@ -44,7 +43,6 @@ class Lightbox {
     this.loadImage(url);
     document.body.appendChild(this.element);
     this.initFocus();
-    console.log("contructor");
     this.ariaHide(false);
     document.addEventListener('keydown', this.onKeyDown);
   }

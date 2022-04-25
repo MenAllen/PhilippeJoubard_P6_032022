@@ -21,3 +21,5 @@ Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
 
 8 Livraison accessibilite -> aria-hidden management + autoplay video
 
+9 Livraison étape 9 -> tri de la galerie
+

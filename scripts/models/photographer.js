@@ -29,7 +29,6 @@ class Photographer {
     let sumLikes = 0;
     const likes = document.querySelectorAll(".likesNumber");
     likes.forEach( (like) => {sumLikes += Number(like.textContent)});
-
     return sumLikes;
   }
 

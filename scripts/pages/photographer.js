@@ -23,36 +23,64 @@ function displayPhotographHeader(photograph) {
 }
 
 
-
 // Affichage de la galerie du photographe désigné par le paramètre id reçu
 function displayPhotographGallery(media, photograph) {
 
   const photographGallery = document.querySelector(".photograph-gallery");
 
-  // récupérer le nom du photograhe pour cconnaître le répertoire des medias
+  // fonction interne effectuant la mise à jour de la galerie présentée en fonction de l'option sélectionnée
+  function updateGallery(media) {
+
+    photographGallery.innerHTML = "";
+    media = sortbyOption(media, readSelectedOption());
+
+    media.forEach((mediaItem) => {
+
+      // si l'id est celui du photographe, on traite
+      if (photograph.id == mediaItem.photographerId) {
+  
+        const mediaModel = new Media(mediaItem);
+  
+        // récupérer le nom du photographe pour renseigner le répertoire des images
+        mediaModel.mediaDirectory = photographName;
+  
+         // afficher la photo ou la video
+        photographGallery.innerHTML += mediaModel.userGalleryCard;  
+      }
+
+    });
+  
+  }
+
+  // Récupération du nom du photograhe pour connaître le répertoire des medias
   let photographName = photograph.name;
   photographName = photographName.split(" ")[0];
 
-  media.forEach((mediaItem) => {
-
-    // si l'id est celui du photographe, on traite
-    if (photograph.id == mediaItem.photographerId) {
-
-		  const mediaModel = new Media(mediaItem);
-
-      // récupérer le nom du photographe pour renseigner le répertoire des images
-      mediaModel.mediaDirectory = photographName;
-
-      // afficher la photo ou la video
-		  photographGallery.innerHTML += mediaModel.userGalleryCard;
-    }
-  });
+  updateGallery(media);
 
   // Maintenant que la gallery est affichée, on met à jour la panel price avec les likes
   const photographPricePanel = document.querySelector(".photograph-price-panel");
   const photographModel = new Photographer(photograph);
 
   photographPricePanel.innerHTML = photographModel.userPanelPrice;
+
+  // On initialise la lightbox et les likes
+    Lightbox.init();
+    Likes.init();
+
+
+    // On active le listener sur le tri des options,
+  const selectButton=document.getElementById("photograph-gallery-select");
+  selectButton.addEventListener('change', (e) => {
+    e.preventDefault();
+    // Mise à jour de la galerie
+    updateGallery(media);
+
+    // Re initialisation de la lightbox et des likes
+    Lightbox.init();
+    Likes.init();
+
+  })
 
 }
 
@@ -68,15 +96,6 @@ async function init() {
   
   displayPhotographHeader(selectedPhotograph);
   displayPhotographGallery(media, selectedPhotograph);
-
-  // Initialisation de la lightbox
-  Lightbox.init();
-
-  // Initialisation de la gestion des likes
-  Likes.init();
-
-  // Initialisation du bouton de tri de gallery
-  Select.init();
 
 }
 

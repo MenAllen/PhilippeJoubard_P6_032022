@@ -49,8 +49,6 @@ function displayModal() {
 	// Affichage de la modale et positionnement de aria-hidden
 	const modal = document.getElementById("contact_modal");
 	const main = document.querySelector("main");
-
-	console.log(modal);
 	
 	modal.style.display = "block";
 	modal.setAttribute("aria-hidden", false);
