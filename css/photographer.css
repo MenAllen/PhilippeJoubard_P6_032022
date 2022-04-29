@@ -173,8 +173,8 @@ select {
 	height: 89px;
 	margin: 0;
 	position: fixed;
-	bottom: -5%;
-	right: 16px;
+	bottom: 1%;
+	right: 3rem;
 	background-color: #db8876;
 	border-radius: 5px;
 }
@@ -229,7 +229,7 @@ select {
 .modal {
 	position: absolute;
 	top: 10%;
-	right: 25%;
+	right: 40%;
 	border-radius: 5px;
 	background-color: #db8876;
 	width: 600px;
@@ -339,7 +339,13 @@ textarea:valid {
     .photograph-gallery {
         grid-template-columns: 1fr 1fr;
     }
-}
+
+		.modal {
+			width: 500px;
+			right: 30%;
+		}
+	
+	}
 
 @media (max-width:768px) {
 
@@ -360,6 +366,7 @@ textarea:valid {
 
 	.modal {
 		width: 300px;
+		right: 20%;
 	}
 
 	.modal header h2 {
