@@ -13,10 +13,6 @@ class Photographer {
     return `${this._city}, ${this._country}`
   }
 
-  get picture() {
-    return `../assets/photographers/${this._picture}`
-  }
-
   get userTitle() {
     return ` - ${this._name}`;
   }

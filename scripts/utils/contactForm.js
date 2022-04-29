@@ -56,6 +56,10 @@ function displayModal() {
 
 	// Passage du focus au premier élément de la modale
 	firstFocusableElement.focus();
+
+	// masquage du scroll du body
+	const body = document.querySelector("body");
+	body.classList.add("noscroll");
 }
 
 // Fermeture de la modale en replaçant le focus au bouton de départ
@@ -65,6 +69,10 @@ function closeModal() {
 
 	// repositionnement de aria-hidden
 	const main = document.querySelector("main");
+
+	// démasquage du scroll du body
+	const body = document.querySelector("body");
+	body.classList.remove("noscroll");
 	
 	modal.setAttribute("aria-hidden", true);
 	main.setAttribute("aria-hidden", false);

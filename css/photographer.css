@@ -75,7 +75,8 @@
 	cursor: pointer;
 }
 
-.contact_button:focus {
+.contact_button:focus,
+select:focus {
 	outline: 3px solid #901c1c;
 	background-color: #d3573c;
 }
@@ -100,6 +101,7 @@ select {
 	border: none;
 	font-size: 18px;
 	font-weight: 700;
+	padding: 10px 0;
 }
 
 .photograph-gallery {
@@ -147,12 +149,16 @@ select {
 	flex-direction: row;
 }
 
-.photograph-gallery figure figcaption i {
+.photograph-gallery figure figcaption div i {
 	align-self: center;
 	color: #901c1c;
 	display: inline-block;
   cursor: pointer;
 	font-size: 20px;
+}
+
+.photograph-gallery figure figcaption i:focus {
+	outline: 3px solid #901c1c;
 }
 
 .likeIcon {
@@ -334,4 +340,45 @@ textarea:valid {
         grid-template-columns: 1fr 1fr;
     }
 }
+
+@media (max-width:768px) {
+
+	.photograph-gallery {
+			grid-template-columns: 1fr;
+	}
+
+	.photograph-header {
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		height: 500px;
+	}
+
+	.photograph-gallery-sort {
+		margin: 50px;
+	}
+
+	.modal {
+		width: 300px;
+	}
+
+	.modal header h2 {
+		font-size: 36px;
+		line-height: 35px;
+	}
+		
+	form label,
+	 form input {
+		font-size: 18px;
+	}
+
+	.textarea {
+		width: 280px;
+		height: 100px;
+		font-size: 18px;
+	}
+	
+
+}
+
 

@@ -52,6 +52,15 @@ function displayPhotographGallery(media, photograph) {
   
   }
 
+  // fonction interne réinitialisant le total des likes sur le panneau de bas de page
+  function updateTotalLikes() {
+    const photographPricePanel = document.querySelector(".photograph-price-panel");
+    const photographModel = new Photographer(photograph);
+
+    photographPricePanel.innerHTML = photographModel.userPanelPrice;
+
+  }
+
   // Récupération du nom du photograhe pour connaître le répertoire des medias
   let photographName = photograph.name;
   photographName = photographName.split(" ")[0];
@@ -59,22 +68,19 @@ function displayPhotographGallery(media, photograph) {
   updateGallery(media);
 
   // Maintenant que la gallery est affichée, on met à jour la panel price avec les likes
-  const photographPricePanel = document.querySelector(".photograph-price-panel");
-  const photographModel = new Photographer(photograph);
-
-  photographPricePanel.innerHTML = photographModel.userPanelPrice;
+  updateTotalLikes();
 
   // On initialise la lightbox et les likes
-    Lightbox.init();
-    Likes.init();
+  Lightbox.init();
+  Likes.init();
 
-
-    // On active le listener sur le tri des options,
+  // On active le listener sur le tri des options,
   const selectButton=document.getElementById("photograph-gallery-select");
   selectButton.addEventListener('change', (e) => {
     e.preventDefault();
-    // Mise à jour de la galerie
+    // Mise à jour de la galerie et update du totalLikes
     updateGallery(media);
+    updateTotalLikes();
 
     // Re initialisation de la lightbox et des likes
     Lightbox.init();

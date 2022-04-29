@@ -5,6 +5,11 @@ body {
     margin: 0 15px;
 }
 
+/* masquage du scroll sur affichage modale */
+.noscroll {
+    overflow: hidden;
+}
+
 /* Les caractéristiques du header selon la maquette */
 header {
     display: flex;

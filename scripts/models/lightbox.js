@@ -16,14 +16,14 @@ class Lightbox {
     // listener sur clic image ou video pour lancer la lightbox
     links.forEach(link => link.addEventListener('click', e => {
       e.preventDefault();
-      new Lightbox(e.currentTarget.getAttribute('src'), images)
+      new Lightbox(e.currentTarget.getAttribute('src'), images, link)
     }));
 
     // listener sur touche enter pour lancer la lightbox
     links.forEach(link => link.addEventListener('keyup', e => {
       e.preventDefault();
       if (e.key == "Enter") {
-        new Lightbox(e.currentTarget.getAttribute('src'), images)
+        new Lightbox(e.currentTarget.getAttribute('src'), images, link)
       }
       return;
     }));
@@ -35,12 +35,13 @@ class Lightbox {
    * @param {*} url de l'image ou la video
    * @param {*} images les images ou video pour la lightbox
    */  
-  constructor(url, images) {
+  constructor(url, images, link) {
 
     this.element = this.buildDOM();
     this.onKeyDown = this.onKeyDown.bind(this);
     this.images = images;
     this.loadImage(url);
+    this.link = link;
     document.body.appendChild(this.element);
     this.initFocus();
     this.ariaHide(false);
@@ -142,6 +143,7 @@ class Lightbox {
     this.element.classList.add('fadeout')
     window.setTimeout(()=> {this.element.parentElement.removeChild(this.element), 500})
     this.ariaHide(true);
+    this.link.focus();
     document.removeEventListener('keydown', this.onKeyDown)
   }
 

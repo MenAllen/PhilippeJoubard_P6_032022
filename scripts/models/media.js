@@ -31,7 +31,7 @@ class MediaPhoto {
           <p>${this._title}</p>
           <div class="likesSection">
             <p class="likesNumber">${this._likes}</p>
-            <i class="fa fa-heart" aria-hidden="true"></i>
+            <i tabindex="0" class="fa fa-heart" aria-hidden="true"></i>
           </div>
         </figcaption>
       </figure>
@@ -69,7 +69,7 @@ class MediaMovie {
           <p>${this._title}</p>
           <div class="likesSection">
             <p class="likesNumber">${this._likes}</p>
-            <i class="fa fa-heart" aria-hidden="true"></i>
+            <i tabindex="0" class="fa fa-heart" aria-hidden="true"></i>
           </div>
         </figcaption>
       </figure>

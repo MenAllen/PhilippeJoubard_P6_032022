@@ -1,8 +1,8 @@
 /**
    * 
    * @returns [string] option choisie
-   */
- function readSelectedOption() {
+*/
+function readSelectedOption() {
   const select = document.querySelector("select");
   return select.options[select.selectedIndex].value;
 }
