@@ -24,3 +24,5 @@ Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
 9 Livraison étape 9 -> tri de la galerie
 
 10 Corrections sur Likes (reinit total sur tri), Tri (padding et focus) et Lightbox (retour focus sur photo)
+
+11 Livraison étape 9 -> Eslint

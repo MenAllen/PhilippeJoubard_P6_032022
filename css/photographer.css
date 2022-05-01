@@ -1,6 +1,3 @@
-#contact_modal {
-	display: none;
-}
 
 .photograph-header {
 	background-color: #fafafa;
@@ -12,10 +9,6 @@
 }
 
 .photograph-header .profile {
-/*	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: start;*/
 	display: block;
 	margin-left: 20px;
 }
@@ -60,7 +53,8 @@
 	object-fit: cover;
 }
 
-.contact_button {
+.contact_button,
+ .submit_button {
 	font-size: 20px;
 	font-weight: 700;
 	font-style: normal;
@@ -76,7 +70,8 @@
 }
 
 .contact_button:focus,
-select:focus {
+ .submit_button:focus,
+  select:focus {
 	outline: 3px solid #901c1c;
 	background-color: #d3573c;
 }
@@ -229,7 +224,7 @@ select {
 .modal {
 	position: absolute;
 	top: 10%;
-	right: 40%;
+	right: 25%;
 	border-radius: 5px;
 	background-color: #db8876;
 	width: 600px;
@@ -293,7 +288,7 @@ form input {
 
 .textarea {
 	vertical-align: top;
-	width: 594px;
+	width: 100%;
 	height: 162px;
 	font-size: 36px;
 }
@@ -366,7 +361,7 @@ textarea:valid {
 
 	.modal {
 		width: 300px;
-		right: 20%;
+		right: 25%;
 	}
 
 	.modal header h2 {
@@ -380,12 +375,11 @@ textarea:valid {
 	}
 
 	.textarea {
-		width: 280px;
+		width: 100%;
 		height: 100px;
 		font-size: 18px;
 	}
 	
-
 }
 
 

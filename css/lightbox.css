@@ -72,10 +72,7 @@
 
 .lightbox_container img,
  .lightbox_container video {
-/*	width: 630px; */
   height: 540px;
-/*  width: 800px;
-  height: auto; */
   align-self: center;
   animation: lightboxIn .5s;
   object-fit: cover;

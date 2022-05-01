@@ -1,3 +1,6 @@
+import { Photographer } from "../models/photographer.js";
+import { getPhotographers } from "../utils/APIfetch.js";
+
 async function displayData(photographers) {
 	const photographersSection = document.querySelector(".photographer_section");
 	photographersSection.innerHTML = "";

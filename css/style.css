@@ -103,4 +103,12 @@ h1 {
     outline: 3px solid #901C1C;
 }
 
+@media (max-width:768px) {
+
+    .photographer_section {
+        grid-template-columns: 1fr 1fr;
+        margin-right: 20px;
+        grid-column-gap: 25px;
+    }
+}    
 
