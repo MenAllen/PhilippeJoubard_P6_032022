@@ -63,7 +63,7 @@ export class Lightbox {
         <button class="lightbox_close" aria-label="fermer le carroussel" ></button>
         <button class="lightbox_next" aria-label="image suivante" ></button>
         <button class="lightbox_previous" aria-label="image précédente" ></button>
-        <div class="lightbox_container" role="document" aria-hidden="true" aria-label=""></div>`;
+        <div class="lightbox_container" role="document" aria-hidden="true" aria-label="Affichage de la galerie d'image"></div>`;
 
 		dom.querySelector(".lightbox_close").addEventListener("click", this.close.bind(this));
 		dom.querySelector(".lightbox_next").addEventListener("click", this.next.bind(this));

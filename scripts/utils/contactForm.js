@@ -37,6 +37,10 @@ export function displayModal() {
 	const form = document.getElementById("formulaire");
 	form.reset();
 
+	// Reset des messages d'erreur du formulaire
+	const formdatas = document.querySelectorAll(".formData");
+	formdatas.forEach((formdata) => formdata.setAttribute("data-error-visible", false));
+
 	// Affichage de la modale et positionnement de aria-hidden
 	const modal = document.getElementById("contact_modal");
 	const main = document.querySelector("main");
@@ -102,26 +106,34 @@ submitButton.addEventListener("click", (event) => {
 	} else {
 		if (prenom.validity.valid) {
 			prenom.parentElement.setAttribute("data-error-visible", "false");
+			prenom.parentElement.setAttribute("aria-invalid", "false");
 		} else {
 			prenom.parentElement.setAttribute("data-error-visible", "true");
+			prenom.parentElement.setAttribute("aria-invalid", "true");
 		}
 
 		if (nom.validity.valid) {
 			nom.parentElement.setAttribute("data-error-visible", "false");
+			prenom.parentElement.setAttribute("aria-invalid", "false");
 		} else {
 			nom.parentElement.setAttribute("data-error-visible", "true");
+			prenom.parentElement.setAttribute("aria-invalid", "true");
 		}
 
 		if (email.validity.valid) {
 			email.parentElement.setAttribute("data-error-visible", "false");
+			prenom.parentElement.setAttribute("aria-invalid", "false");
 		} else {
 			email.parentElement.setAttribute("data-error-visible", "true");
+			prenom.parentElement.setAttribute("aria-invalid", "true");
 		}
 
 		if (message.validity.valid) {
 			message.parentElement.setAttribute("data-error-visible", "false");
+			prenom.parentElement.setAttribute("aria-invalid", "false");
 		} else {
 			message.parentElement.setAttribute("data-error-visible", "true");
+			prenom.parentElement.setAttribute("aria-invalid", "true");
 		}
 	}
 });

@@ -23,7 +23,7 @@ function displayPhotographHeader(photograph) {
 
 	// Appel de userName pour initialiser le nom du photographe dans la modale
 	const photographName = document.querySelector(".modal_name");
-	photographName.innerHTML += photographModel.userName;
+	photographName.innerHTML += `<br>${photographModel.userName}`;
 
 	// mise à jour du title avec le nom du photographe
 	document.title += photographModel.userTitle;
