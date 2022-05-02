@@ -65,7 +65,7 @@ export class Photographer {
 		return `
       <div aria-label="Total likes est ${this.computeTotalLikes}, taux journalier est ${this._price}">
         <p id="totalLikes">${this.computeTotalLikes}</p>
-        <i class="fa fa-heart heart-"btn" aria-hidden="true"></i>
+        <i class="fa fa-heart heart-"btn"></i>
       </div>
       <p>${this._price} €/jour</p>
     `;

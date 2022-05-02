@@ -80,7 +80,7 @@ function displayPhotographGallery(media, photograph) {
 		displayModal();
 	});
 
-	// On active le listener sur le formulaire de contact
+	// On active le listener sur la fermeture du formulaire de contact
 	const closeButton = document.getElementById("close_modal");
 	closeButton.addEventListener("click", (e) => {
 		e.preventDefault();

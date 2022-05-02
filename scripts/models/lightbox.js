@@ -63,7 +63,7 @@ export class Lightbox {
         <button class="lightbox_close" aria-label="fermer le carroussel" ></button>
         <button class="lightbox_next" aria-label="image suivante" ></button>
         <button class="lightbox_previous" aria-label="image précédente" ></button>
-        <div class="lightbox_container" role="document" aria-hidden="true" aria-label="Affichage de la galerie d'image"></div>`;
+        <div class="lightbox_container" role="document"></div>`;
 
 		dom.querySelector(".lightbox_close").addEventListener("click", this.close.bind(this));
 		dom.querySelector(".lightbox_next").addEventListener("click", this.next.bind(this));
@@ -88,6 +88,8 @@ export class Lightbox {
 			const image = new Image();
 			container.appendChild(image);
 			image.src = url;
+			image.setAttribute("alt", legend.innerHTML);
+			image.setAttribute("aria-label", legend.innerHTML);
 		} else if (url.endsWith(".mp4")) {
 			//video
 			const video = document.createElement("video");
@@ -96,6 +98,7 @@ export class Lightbox {
 			video.setAttribute("controls", "");
 			video.setAttribute("autoplay", "");
 			video.src = url;
+			video.setAttribute("aria-label", legend.innerHTML);
 		}
 
 		// Element legende sous image ou video

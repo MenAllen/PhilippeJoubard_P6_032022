@@ -7,7 +7,7 @@
 
 export class Likes {
 	static init() {
-		const likesIcon = document.querySelectorAll(".likesSection i");
+		const likesIcon = document.querySelectorAll(".likesSection button");
 		let totalLikes = document.getElementById("totalLikes");
 
 		/**
@@ -16,14 +16,16 @@ export class Likes {
 		 * @param {*} totalLikes nombre total de likes
 		 */
 		function updateLikes(link, totalLikes) {
-			if (link.classList[2] === "likeIcon") {
+			if (link.classList[0] === "likeIcon") {
 				link.classList.remove("likeIcon");
 				--link.parentElement.childNodes[1].innerHTML;
 				--totalLikes.innerHTML;
+				link.setAttribute("aria-label", "J'aime pas");
 			} else {
 				link.classList.add("likeIcon");
 				++link.parentElement.childNodes[1].innerHTML;
 				++totalLikes.innerHTML;
+				link.setAttribute("aria-label", "J'aime");
 			}
 		}
 
