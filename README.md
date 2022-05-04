@@ -30,3 +30,5 @@ Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
 12 Corrections reset erreur sur ouverture formulaire
 
 13 Adaptation pour screenreader Likes
+
+14 Corrections suite tests NVDA

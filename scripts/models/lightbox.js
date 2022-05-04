@@ -40,13 +40,16 @@ export class Lightbox {
 	constructor(url, images, link) {
 		this.element = this.buildDOM();
 		this.onKeyDown = this.onKeyDown.bind(this);
+		this.onKeyUp = this.onKeyUp.bind(this);
 		this.images = images;
 		this.loadImage(url);
 		this.link = link;
 		document.body.appendChild(this.element);
 		this.initFocus();
 		this.ariaHide(false);
+
 		document.addEventListener("keydown", this.onKeyDown);
+		document.addEventListener("keyup", this.onKeyUp);
 	}
 
 	/**
@@ -94,7 +97,6 @@ export class Lightbox {
 			//video
 			const video = document.createElement("video");
 			container.appendChild(video);
-			video.setAttribute("tabindex", "0");
 			video.setAttribute("controls", "");
 			video.setAttribute("autoplay", "");
 			video.src = url;
@@ -103,6 +105,8 @@ export class Lightbox {
 
 		// Element legende sous image ou video
 		container.appendChild(legend);
+		legend.setAttribute("tabindex", "0");
+		this.firstFocusableElement = legend;
 	}
 
 	/**
@@ -112,7 +116,7 @@ export class Lightbox {
 	initFocus() {
 		const focusableElements = document.querySelectorAll(".lightbox button");
 
-		this.firstFocusableElement = focusableElements[0];
+		this.thirdFocusableElement = focusableElements[0];
 		this.secondFocusableElement = focusableElements[1];
 		this.lastFocusableElement = focusableElements[2];
 
@@ -142,17 +146,18 @@ export class Lightbox {
 	 */
 	close(e) {
 		e.preventDefault();
+		document.removeEventListener("keydown", this.onKeyDown);
+		document.removeEventListener("keyup", this.onKeyUp);
+		this.ariaHide(true);
 		this.element.classList.add("fadeout");
 		window.setTimeout(() => {
 			this.element.parentElement.removeChild(this.element), 500;
 		});
-		this.ariaHide(true);
 		this.link.focus();
-		document.removeEventListener("keydown", this.onKeyDown);
 	}
 
 	/**
-	 * Passer à l'image suivante de la galerie
+	 * Passer à l'image suivante de la galerie avec le focus
 	 * @param {MouseEvent | KeyboardEvent} e
 	 */
 	next(e) {
@@ -162,10 +167,11 @@ export class Lightbox {
 			i = -1;
 		}
 		this.loadImage(this.images[i + 1]);
+		this.firstFocusableElement.focus();
 	}
 
 	/**
-	 * Passer à l'image précédente de la galerie
+	 * Passer à l'image précédente de la galerie avec le focus
 	 * @param {MouseEvent | KeyboardEvent} e
 	 */
 	prev(e) {
@@ -175,6 +181,7 @@ export class Lightbox {
 			i = this.images.length;
 		}
 		this.loadImage(this.images[i - 1]);
+		this.firstFocusableElement.focus();
 	}
 
 	/**
@@ -187,9 +194,46 @@ export class Lightbox {
 		e.preventDefault();
 		let isTabPressed = e.key === "Tab";
 
+		if (isTabPressed) {
+			if (e.shiftKey) {
+				// Si shift key pressé pour la combinaison shift + tab
+				if (document.activeElement === this.firstFocusableElement) {
+					this.lastFocusableElement.focus(); // on met le focus sur le dernier element focusable
+				} else if (document.activeElement === this.lastFocusableElement) {
+					this.thirdFocusableElement.focus();
+				} else if (document.activeElement === this.secondFocusableElement) {
+					this.firstFocusableElement.focus();
+				} else if (document.activeElement === this.thirdFocusableElement) {
+					this.secondFocusableElement.focus();
+				}
+			} else {
+				// Sinon TabPressed seul
+				if (document.activeElement === this.lastFocusableElement) {
+					// Si on arrive au dernier element focusable, alors on remet le focus sur le premier
+					this.firstFocusableElement.focus();
+				} else if (document.activeElement === this.firstFocusableElement) {
+					this.secondFocusableElement.focus();
+				} else if (document.activeElement === this.secondFocusableElement) {
+					this.thirdFocusableElement.focus();
+				} else if (document.activeElement === this.thirdFocusableElement) {
+					this.lastFocusableElement.focus();
+				}
+			}
+		}
+	}
+
+/**
+	 * Sortir du light box si 'Escape' ou 'Enter' sur closeButton au clavier
+	 * Passer à image ou video suivante ou précédente si 'ArrowRight' ou 'ArrowLeft'
+	 * @param {Keyboard event} e
+	 */
+ onKeyUp(e) {
+		e.preventDefault();
+
 		switch (e.key) {
 			case "Escape":
 				this.close(e);
+//				this.close.bind(this);
 				break;
 			case "ArrowRight":
 				this.next(e);
@@ -198,7 +242,7 @@ export class Lightbox {
 				this.prev(e);
 				break;
 			case "Enter":
-				if (document.activeElement === this.firstFocusableElement) {
+				if (document.activeElement === this.thirdFocusableElement) {
 					this.close(e);
 				} else if (document.activeElement === this.secondFocusableElement) {
 					this.next(e);
@@ -207,28 +251,7 @@ export class Lightbox {
 				}
 				break;
 			default:
-				if (isTabPressed) {
-					if (e.shiftKey) {
-						// Si shift key pressé pour la combinaison shift + tab
-						if (document.activeElement === this.firstFocusableElement) {
-							this.lastFocusableElement.focus(); // on met le focus sur le dernier element focusable
-						} else if (document.activeElement === this.lastFocusableElement) {
-							this.secondFocusableElement.focus();
-						} else if (document.activeElement === this.secondFocusableElement) {
-							this.firstFocusableElement.focus();
-						}
-					} else {
-						// Sinon
-						if (document.activeElement === this.lastFocusableElement) {
-							// Si on arrive au dernier element focusable, alors on remet le focus sur le premier
-							this.firstFocusableElement.focus();
-						} else if (document.activeElement === this.firstFocusableElement) {
-							this.secondFocusableElement.focus();
-						} else if (document.activeElement === this.secondFocusableElement) {
-							this.lastFocusableElement.focus();
-						}
-					}
-				}
 		}
 	}
+
 }

@@ -81,8 +81,12 @@
 .lightbox_container p {
   font-size: 24px;
   color: #000000;
-/*  line-height: 32px; */
-	line-height: 1.5;
+  line-height: 32px;
+}
+
+.lightbox_container p:focus {
+	text-decoration: none;
+	outline: 3px solid #901C1C;   
 }
 
 .lightbox_loader {

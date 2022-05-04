@@ -6,7 +6,7 @@ import { Lightbox } from "../models/lightbox.js";
 
 // Import des fonctions externes
 import { getPhotographers } from "../utils/APIfetch.js";
-import { displayModal, closeModal } from "../utils/contactForm.js";
+import { displayModal } from "../utils/contactForm.js";
 import { sortbyOption, readSelectedOption } from "../utils/sort.js";
 
 // Sélectionne le photographe visé par l'Id fourni
@@ -78,13 +78,6 @@ function displayPhotographGallery(media, photograph) {
 	contactButton.addEventListener("click", (e) => {
 		e.preventDefault();
 		displayModal();
-	});
-
-	// On active le listener sur la fermeture du formulaire de contact
-	const closeButton = document.getElementById("close_modal");
-	closeButton.addEventListener("click", (e) => {
-		e.preventDefault();
-		closeModal();
 	});
 
 	// On active le listener sur le tri des options,
