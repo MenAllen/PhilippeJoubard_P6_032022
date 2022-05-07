@@ -81,9 +81,38 @@ function closeModal() {
 /**
  * Activation du listener sur keydown pour navigation dans le formulaire
  */
-document.addEventListener("keydown", (e) => {
+modal.addEventListener("keydown", (e) => {
 
 	let isTabPressed = e.key === "Tab" || e.keyCode === 9;
+	let activeElementIndex = -1;
+
+	// Si fleches clavier up ou down
+	if ( e.key === "ArrowDown" || e.key === "ArrowUp") {
+
+		// on identifie l'element actif dans le formulaire
+		for (let i=0; i < focusableContent.length; i++) {
+			if (document.activeElement === focusableContent[i]) {
+				activeElementIndex = i;
+				break;
+			}
+		}
+
+		// On pointe l'element suivant pour y mettre le focus 
+		if (e.key === "ArrowDown") {
+			if (activeElementIndex === focusableContent.length-1) {
+				activeElementIndex = 0;
+			} else {
+				++activeElementIndex;
+			}
+		} else if (e.key === "ArrowUp") {
+			if (activeElementIndex === 0) {
+				activeElementIndex = focusableContent.length-1;
+			} else {
+				--activeElementIndex;
+			}		
+		}
+		focusableContent[activeElementIndex].focus();
+	}
 
 	if (e.key === "Escape") {
 		closeModal();

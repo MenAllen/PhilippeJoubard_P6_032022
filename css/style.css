@@ -1,4 +1,5 @@
 @import url("photographer.css");
+@import url("lightbox.css");
 
 body {
     font-family: "DM Sans", sans-serif;
@@ -23,6 +24,10 @@ h1 {
     color: #901C1C;
     margin-right: 100px;
     margin-top: 44px;
+}
+
+header h1:focus {
+    outline: 3px solid #901C1C;
 }
 
 .filler {

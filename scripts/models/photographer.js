@@ -48,13 +48,13 @@ export class Photographer {
 	// Rappel des informations sur le photographe dans la page photographe
 	get userData() {
 		return `
-      <div class="profile">
-        <h2>${this._name}</h2>
-        <p class="location">${this.location}</p>
+      <article class="profile">
+        <h1 tabindex="0">${this._name}</h1>
+        <h2 class="location">${this.location}</h2>
         <p class="tagline">${this._tagline}</p>
-      </div>
+      </article>
       <div class="contact">
-        <button id="contact_button" class="contact_button" aria-label="contacter le photographe ${this._name}">Contactez-moi</button>
+        <button type="button" aria-haspopup="dialog" id="contact_button" class="contact_button" aria-label="contacter le photographe ${this._name}">Contactez-moi</button>
       </div>
       <img src="assets/photographers/${this._picture}" alt="le photographe ${this._name}"></img>
      `;
@@ -65,7 +65,7 @@ export class Photographer {
 		return `
       <div aria-label="Total likes est ${this.computeTotalLikes}, taux journalier est ${this._price}">
         <p id="totalLikes">${this.computeTotalLikes}</p>
-        <i class="fa fa-heart heart-"btn"></i>
+        <i class="fa fa-heart"></i>
       </div>
       <p>${this._price} €/jour</p>
     `;

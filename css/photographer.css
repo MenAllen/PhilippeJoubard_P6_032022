@@ -13,7 +13,7 @@
 	margin-left: 20px;
 }
 
-.photograph-header .profile h2 {
+.photograph-header .profile h1 {
 	color: #d3573c;
 	font-style: normal;
 	font-weight: 700;
@@ -21,6 +21,10 @@
 	line-height: 83px;
 	margin-top: 50px;
 	margin-bottom: 0;
+}
+
+.photograph-header .profile h1:focus {
+	outline: 3px solid #901c1c;
 }
 
 .photograph-header .profile .location {
@@ -73,7 +77,13 @@
  .submit_button:focus,
   select:focus {
 	outline: 3px solid #901c1c;
-	background-color: #d3573c;
+	background-color: #db8876;
+}
+
+.contact_button:hover,
+ .submit_button:hover,
+  select:hover {
+	background-color: #db8876;
 }
 
 .photograph-gallery-sort {
@@ -97,6 +107,7 @@ select {
 	font-size: 18px;
 	font-weight: 700;
 	padding: 15px 0;
+	cursor: pointer;
 }
 
 .photograph-gallery {
@@ -157,8 +168,16 @@ select {
 	outline: 3px solid #901c1c;
 }
 
+.photograph-gallery figure figcaption button:hover {
+	color: #db8876;
+}
+
 .likeIcon {
     color: rgba(19, 235, 12, 1)!important;
+}
+
+.likeIcon:hover {
+	color: #db8876;
 }
 
 .photograph-price-panel {
@@ -223,9 +242,6 @@ select {
 }
 
 .modal {
-	position: absolute;
-	top: 5%;
-	right: 28%;
 	border-radius: 5px;
 	background-color: #db8876;
 	width: 600px;
@@ -235,7 +251,7 @@ select {
 	align-items: center;
 	justify-content: space-between;
 	padding: 35px;
-	margin: auto;
+	margin: 50px auto;
 }
 
 .modal header {
@@ -341,7 +357,6 @@ textarea:valid {
 
 		.modal {
 			width: 500px;
-			right: 30%;
 		}
 	
 	}
@@ -365,12 +380,10 @@ textarea:valid {
 
 	.modal {
 		width: 300px;
-		right: 25%;
 	}
 
 	.modal header h2 {
 		font-size: 36px;
-	/*	line-height: 35px; */
 		line-height: 1.5;
 	}
 		

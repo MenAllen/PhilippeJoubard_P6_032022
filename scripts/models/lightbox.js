@@ -63,10 +63,10 @@ export class Lightbox {
 		dom.setAttribute("tabindex", "0");
 
 		dom.innerHTML = `
-        <button class="lightbox_close" aria-label="fermer le carroussel" ></button>
-        <button class="lightbox_next" aria-label="image suivante" ></button>
-        <button class="lightbox_previous" aria-label="image précédente" ></button>
-        <div class="lightbox_container" role="document"></div>`;
+        <button class="lightbox_close" aria-label="fermer le carroussel" ><i class="fa-solid fa-close fa-4x"></i></button>
+        <button class="lightbox_next" aria-label="image suivante" ><i class="fa-solid fa-angle-right fa-4x"></i></button>
+        <button class="lightbox_previous" aria-label="image précédente" ><i class="fa-solid fa-angle-left fa-4x"></i></button>
+        <div class="lightbox_container" role="dialog"></div>`;
 
 		dom.querySelector(".lightbox_close").addEventListener("click", this.close.bind(this));
 		dom.querySelector(".lightbox_next").addEventListener("click", this.next.bind(this));
@@ -83,20 +83,24 @@ export class Lightbox {
 		this.url = url;
 		const container = this.element.querySelector(".lightbox_container");
 		container.innerHTML = "";
+
+		let div = document.createElement("div");
+		container.appendChild(div).classList.add("lightbox_container_media");
+		let containerMedia = this.element.querySelector(".lightbox_container_media");
+
 		const legend = document.createElement("p");
 		legend.innerHTML = url.split("/")[url.split("/").length - 1].split(".")[0].replaceAll("_", " ");
 
 		if (url.endsWith(".jpg")) {
 			// image
 			const image = new Image();
-			container.appendChild(image);
+			containerMedia.appendChild(image);
 			image.src = url;
 			image.setAttribute("alt", legend.innerHTML);
-			image.setAttribute("aria-label", legend.innerHTML);
 		} else if (url.endsWith(".mp4")) {
 			//video
 			const video = document.createElement("video");
-			container.appendChild(video);
+			containerMedia.appendChild(video);
 			video.setAttribute("controls", "");
 			video.setAttribute("autoplay", "");
 			video.src = url;
@@ -104,7 +108,7 @@ export class Lightbox {
 		}
 
 		// Element legende sous image ou video
-		container.appendChild(legend);
+		containerMedia.appendChild(legend);
 		legend.setAttribute("tabindex", "0");
 		this.firstFocusableElement = legend;
 	}
@@ -120,7 +124,7 @@ export class Lightbox {
 		this.secondFocusableElement = focusableElements[1];
 		this.lastFocusableElement = focusableElements[2];
 
-		this.firstFocusableElement.focus();
+		this.secondFocusableElement.focus();
 	}
 
 	/**
@@ -146,6 +150,7 @@ export class Lightbox {
 	 */
 	close(e) {
 		e.preventDefault();
+
 		document.removeEventListener("keydown", this.onKeyDown);
 		document.removeEventListener("keyup", this.onKeyUp);
 		this.ariaHide(true);
@@ -228,7 +233,8 @@ export class Lightbox {
 	 * @param {Keyboard event} e
 	 */
  onKeyUp(e) {
-		e.preventDefault();
+
+	//	e.preventDefault();
 
 		switch (e.key) {
 			case "Escape":

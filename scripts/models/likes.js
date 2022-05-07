@@ -37,14 +37,5 @@ export class Likes {
 			})
 		);
 
-		// listener sur enter
-/*		likesIcon.forEach((link) =>
-			link.addEventListener("keyup", (e) => {
-				e.preventDefault();
-				if (e.key === "Enter") {
-					updateLikes(link, totalLikes);
-				}
-			})
-		);*/
 	}
 }

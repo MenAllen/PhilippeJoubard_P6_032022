@@ -6,16 +6,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="Fisheye, photographes freelance" />
 		<meta name="keywords" content="photographers, photographies, video" />
-
+		
+		<!-- Styles, Icônes & Fonts -->
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
-		<link href="css/photographer.css" rel="stylesheet" type="text/css" />
-		<link href="css/lightbox.css" rel="stylesheet" type="text/css" />
-
 		<link rel="icon" type="image/png" href="assets/icons/favicon.png" />
 		<link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
-
-		<!-- Icônes Fontawesome -->
-		<script src="https://kit.fontawesome.com/fe6a60c3cf.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		
 </head>
 
@@ -23,7 +19,7 @@
 
 		<!-- Header avec logo -->
 		<header>
-			<a href="index.html" class="photographers_focus" aria-label= "retour à l'accueil" title="Retour à l'accueil">
+			<a href="index.html" class="photographers_focus" aria-label= "retour à l'accueil">
 				<img src="assets/images/logo.png" class="logo" alt="logo de Fisheye" />
 			</a>
 		</header>
@@ -60,19 +56,19 @@
 				<form id="formulaire" name="formulaire de contact" aria-label="formulaire de contact">
 					<div class="formData" data-error="Veuillez entrer au moins 2 caractères" data-error-visible="false" aria-invalid="false">
 						<label for="first">Prénom</label>
-						<input type="text" id="first" name="first" minlength="2" required aria-required="true"/>
+						<input type="text" id="first" name="first" minlength="2" required aria-required="true" autocomplete="off"/>
 					</div>
 					<div class="formData" data-error="Veuillez entrer au moins 2 caractères" data-error-visible="false" aria-invalid="false">
 						<label for="last">Nom</label>
-						<input type="text" id="last" name="last" minlength="2" required aria-required="true"/>
+						<input type="text" id="last" name="last" minlength="2" required aria-required="true" autocomplete="off"/>
 					</div>
 					<div class="formData" data-error="Veuillez respecter le format mail" data-error-visible="false" aria-invalid="false">
 						<label for="email">E-mail</label>
-						<input type="email" id="email" name="email" aria-describedby="email" placeholder="example@domaine.fr" required aria-required="true" />
+						<input type="email" id="email" name="email" aria-describedby="email" placeholder="example@domaine.fr" required aria-required="true" autocomplete="off"/>
 					</div>
 					<div class="formData" data-error="Veuillez respecter min 2 et max 255 caractères" data-error-visible="false" aria-invalid="false">
 						<label for="message">Votre message</label>
-						<textarea id="message" name="message" class="textarea" minlength="2" maxlength="255" rows="4" required aria-required="true"></textarea>
+						<textarea id="message" name="message" class="textarea" minlength="2" maxlength="255" rows="4" required aria-required="true" autocomplete="off"></textarea>
 					</div>
 					<button type="submit" id="submit_button" class="submit_button" aria-label="Envoyer">Envoyer</button>
 				</form>
