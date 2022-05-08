@@ -97,6 +97,7 @@ export class Lightbox {
 			containerMedia.appendChild(image);
 			image.src = url;
 			image.setAttribute("alt", legend.innerHTML);
+			image.setAttribute("aria-label", legend.innerHTML);
 			image.setAttribute("tabindex", "0");
 			this.firstFocusableElement = image;
 		} else if (url.endsWith(".mp4")) {
@@ -113,7 +114,6 @@ export class Lightbox {
 
 		// Element legende sous image ou video
 		containerMedia.appendChild(legend);
-		legend.setAttribute("tabindex", "0");
 		
 	}
 

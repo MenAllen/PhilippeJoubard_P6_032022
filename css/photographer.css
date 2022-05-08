@@ -185,7 +185,7 @@ select {
 	right: 3rem;
 	background-color: #db8876;
 	border-radius: 5px;
-	z-index: 100;
+	z-index: 5;
 }
 
 .photograph-price-panel div,
