@@ -66,7 +66,7 @@ export class Lightbox {
         <button class="lightbox_close" aria-label="fermer le carroussel" ><i class="fa-solid fa-close fa-4x"></i></button>
         <button class="lightbox_next" aria-label="image suivante" ><i class="fa-solid fa-angle-right fa-4x"></i></button>
         <button class="lightbox_previous" aria-label="image précédente" ><i class="fa-solid fa-angle-left fa-4x"></i></button>
-        <div class="lightbox_container" role="dialog"></div>`;
+        <div role="document" class="lightbox_container"></div>`;
 
 		dom.querySelector(".lightbox_close").addEventListener("click", this.close.bind(this));
 		dom.querySelector(".lightbox_next").addEventListener("click", this.next.bind(this));
@@ -88,7 +88,7 @@ export class Lightbox {
 		container.appendChild(div).classList.add("lightbox_container_media");
 		let containerMedia = this.element.querySelector(".lightbox_container_media");
 
-		const legend = document.createElement("p");
+		const legend = document.createElement("h4");
 		legend.innerHTML = url.split("/")[url.split("/").length - 1].split(".")[0].replaceAll("_", " ");
 
 		if (url.endsWith(".jpg")) {
@@ -124,7 +124,7 @@ export class Lightbox {
 		this.secondFocusableElement = focusableElements[1];
 		this.lastFocusableElement = focusableElements[2];
 
-		this.secondFocusableElement.focus();
+		this.firstFocusableElement.focus();
 	}
 
 	/**

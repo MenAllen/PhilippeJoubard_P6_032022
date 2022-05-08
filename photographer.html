@@ -20,7 +20,7 @@
 		<!-- Header avec logo -->
 		<header>
 			<a href="index.html" class="photographers_focus" aria-label= "retour à l'accueil">
-				<img src="assets/images/logo.png" class="logo" alt="logo de Fisheye" />
+				<img src="assets/images/logo.png" class="logo" alt="logo Fisheye" />
 			</a>
 		</header>
 
@@ -29,9 +29,12 @@
 			<!-- sections photograph pour afficher les réalisations du photographe -->
 			<section id="photograph-header" class="photograph-header"></section>
 
+			<!-- panel de bas d'ecran avec nombre total de likes et taux journalier du photographe -->
+			<aside class="photograph-price-panel" aria-label="Tarif du photographe" tabindex="0"></aside>
+
 			<!-- section tri de la galerie de photos et videos du photographe -->
 			<section class="photograph-gallery-sort">
-				<label for="photograph-gallery-select">Trier par</label>
+				<label for="photograph-gallery-select" tabindex="0">Trier par</label>
         <select id="photograph-gallery-select" name="Tri">
           <option value="Popularité">Popularité</option>
           <option value="Date">Date</option>
@@ -42,8 +45,6 @@
 			<!-- section galerie des photos et videos du photographe concerné -->
 			<section class="photograph-gallery"></section>
 
-			<!-- panel de bas d'ecran avec nombre total de likes et taux journalier du photographe -->
-			<aside class="photograph-price-panel" aria-label="Tarif du photographe"></aside>
 		</main>
 
 		<!-- Formulaire de contact -->
@@ -51,7 +52,7 @@
 			<div class="modal" role="dialog" aria-describedby="formulaire">
 				<header>
 					<h2 class="modal_name">Contactez-moi</h2>
-					<img id="close_modal" src="assets/icons/close.svg" tabindex="0" alt="Fermer le formulaire de contact" aria-label="Fermer le formulaire de contact"/>
+					<img id="close_modal" src="assets/icons/close.svg" tabindex="0" alt="Fermer le formulaire" aria-label="Fermer le formulaire"/>
 				</header>
 				<form id="formulaire" name="formulaire de contact" aria-label="formulaire de contact">
 					<div class="formData" data-error="Veuillez entrer au moins 2 caractères" data-error-visible="false" aria-invalid="false">

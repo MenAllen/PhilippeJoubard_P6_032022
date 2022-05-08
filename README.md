@@ -32,3 +32,7 @@ Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
 13 Adaptation pour screenreader Likes
 
 14 Corrections suite tests NVDA
+
+15 Ajout navigation fleches haut et bas pour formulaire
+
+16 Corrections deroulés focus pages html

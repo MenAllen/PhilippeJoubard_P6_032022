@@ -85,14 +85,15 @@
   object-fit: cover;
 }
 
-.lightbox_container_media p {
+.lightbox_container_media h4 {
   font-size: 24px;
-  color: #000000;
+	font-weight: 400;
+  color: #901C1C;
   line-height: 32px;
 	align-self: flex-start;
 }
 
-.lightbox_container_media p:focus {
+.lightbox_container_media h4:focus {
 	text-decoration: none;
 	outline: 3px solid #901C1C;   
 }

@@ -32,16 +32,18 @@ export class Photographer {
 
 	// Affiche une "carte de presentation" d'un photographe dans la page d'accueil
 	get userCardDOM() {
-		return `
-      <a href="./photographer.html?id=${this._id}" class="photographers_focus" aria-label="présentation du photographe ${this._name}">
-        <article role="document">
-          <img src="assets/photographers/${this._picture}" alt="le photographe ${this._name}"></img>
-          <h2>${this._name}</h2>
-          <p class="location">${this.location}</p>
-          <p class="tagline">${this._tagline}</p>
-          <p class="price">${this._price}€/jour</p>
-        </article>
-      </a>
+		return `      
+        <article>
+					<a href="./photographer.html?id=${this._id}">
+	          <img class="photographer_zoom" src="assets/photographers/${this._picture}" alt="${this._name}"></img>
+          	<h2 aria-label="${this._name}">${this._name}</h2>
+					</a>
+					<div role="paragraph" tabindex="0">
+	          <h3 class="location">${this.location}</h3>
+  	        <p class="tagline">${this._tagline}</p>
+    	      <p class="price">${this._price}€/jour</p>
+					</div>
+				</article>
        `;
 	}
 
@@ -50,13 +52,15 @@ export class Photographer {
 		return `
       <article class="profile">
         <h1 tabindex="0">${this._name}</h1>
-        <h2 class="location">${this.location}</h2>
-        <p class="tagline">${this._tagline}</p>
+				<div role="paragraph" tabindex="0">
+	        <h2 class="location">${this.location}</h2>
+  	      <p class="tagline">${this._tagline}</p>
+				</div>
       </article>
       <div class="contact">
         <button type="button" aria-haspopup="dialog" id="contact_button" class="contact_button" aria-label="contacter le photographe ${this._name}">Contactez-moi</button>
       </div>
-      <img src="assets/photographers/${this._picture}" alt="le photographe ${this._name}"></img>
+      <img src="assets/photographers/${this._picture}" alt="${this._name}" tabindex="0"></img>
      `;
 	}
 
