@@ -63,10 +63,10 @@ export class Lightbox {
 		dom.setAttribute("tabindex", "0");
 
 		dom.innerHTML = `
-        <button class="lightbox_close" aria-label="fermer le carroussel" ><i class="fa-solid fa-close fa-4x"></i></button>
-        <button class="lightbox_next" aria-label="image suivante" ><i class="fa-solid fa-angle-right fa-4x"></i></button>
-        <button class="lightbox_previous" aria-label="image précédente" ><i class="fa-solid fa-angle-left fa-4x"></i></button>
-        <div role="document" class="lightbox_container"></div>`;
+        <button role="button" class="lightbox_close" aria-label="fermer le carroussel" ><i class="fa-solid fa-close fa-4x"></i></button>
+        <button role="link" class="lightbox_next" aria-label="image suivante" ><i class="fa-solid fa-angle-right fa-4x"></i></button>
+        <button role="link" class="lightbox_previous" aria-label="image précédente" ><i class="fa-solid fa-angle-left fa-4x"></i></button>
+        <div role="dialog" aria-label="image closeup view" class="lightbox_container"></div>`;
 
 		dom.querySelector(".lightbox_close").addEventListener("click", this.close.bind(this));
 		dom.querySelector(".lightbox_next").addEventListener("click", this.next.bind(this));
@@ -97,6 +97,8 @@ export class Lightbox {
 			containerMedia.appendChild(image);
 			image.src = url;
 			image.setAttribute("alt", legend.innerHTML);
+			image.setAttribute("tabindex", "0");
+			this.firstFocusableElement = image;
 		} else if (url.endsWith(".mp4")) {
 			//video
 			const video = document.createElement("video");
@@ -105,20 +107,24 @@ export class Lightbox {
 			video.setAttribute("autoplay", "");
 			video.src = url;
 			video.setAttribute("aria-label", legend.innerHTML);
+			video.setAttribute("tabindex", "0");
+			this.firstFocusableElement = video;
 		}
 
 		// Element legende sous image ou video
 		containerMedia.appendChild(legend);
 		legend.setAttribute("tabindex", "0");
-		this.firstFocusableElement = legend;
+		
 	}
 
 	/**
-	 *  Initialisation du premier et dernier element focusable
+	 *  Initialisation des elements focusable
 	 *  pour naviguer en boucle
 	 */
 	initFocus() {
 		const focusableElements = document.querySelectorAll(".lightbox button");
+
+		console.log(focusableElements);
 
 		this.thirdFocusableElement = focusableElements[0];
 		this.secondFocusableElement = focusableElements[1];

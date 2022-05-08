@@ -20,7 +20,7 @@
 		<!-- Header avec logo -->
 		<header>
 			<a href="index.html" class="photographers_focus" aria-label= "retour à l'accueil">
-				<img src="assets/images/logo.png" class="logo" alt="logo Fisheye" />
+				<img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" />
 			</a>
 		</header>
 
@@ -30,12 +30,12 @@
 			<section id="photograph-header" class="photograph-header"></section>
 
 			<!-- panel de bas d'ecran avec nombre total de likes et taux journalier du photographe -->
-			<aside class="photograph-price-panel" aria-label="Tarif du photographe" tabindex="0"></aside>
+			<aside class="photograph-price-panel" aria-label="Tarif du photographe"></aside>
 
 			<!-- section tri de la galerie de photos et videos du photographe -->
 			<section class="photograph-gallery-sort">
-				<label for="photograph-gallery-select" tabindex="0">Trier par</label>
-        <select id="photograph-gallery-select" name="Tri">
+				<label for="photograph-gallery-select">Trier par</label>
+        <select id="photograph-gallery-select" aria-labelledby="option">
           <option value="Popularité">Popularité</option>
           <option value="Date">Date</option>
           <option value="Titre">Titre</option>
@@ -49,27 +49,27 @@
 
 		<!-- Formulaire de contact -->
 		<div id="contact_modal" aria-hidden="true">
-			<div class="modal" role="dialog" aria-describedby="formulaire">
+			<div class="modal" role="dialog" aria-labelledby="contactMe">
 				<header>
-					<h2 class="modal_name">Contactez-moi</h2>
+					<h2 id="contactMe" class="modal_name">Contactez-moi</h2>
 					<img id="close_modal" src="assets/icons/close.svg" tabindex="0" alt="Fermer le formulaire" aria-label="Fermer le formulaire"/>
 				</header>
 				<form id="formulaire" name="formulaire de contact" aria-label="formulaire de contact">
 					<div class="formData" data-error="Veuillez entrer au moins 2 caractères" data-error-visible="false" aria-invalid="false">
-						<label for="first">Prénom</label>
-						<input type="text" id="first" name="first" minlength="2" required aria-required="true" autocomplete="off"/>
+						<label for="firstname">Prénom</label>
+						<input type="text" id="firstname" name="firstname" minlength="2" required aria-required="true" aria-labelledby="firstname" autocomplete="off"/>
 					</div>
 					<div class="formData" data-error="Veuillez entrer au moins 2 caractères" data-error-visible="false" aria-invalid="false">
-						<label for="last">Nom</label>
-						<input type="text" id="last" name="last" minlength="2" required aria-required="true" autocomplete="off"/>
+						<label for="lastname">Nom</label>
+						<input type="text" id="lastname" name="lastname" minlength="2" required aria-required="true" aria-labelledby="lastname" autocomplete="off"/>
 					</div>
 					<div class="formData" data-error="Veuillez respecter le format mail" data-error-visible="false" aria-invalid="false">
 						<label for="email">E-mail</label>
-						<input type="email" id="email" name="email" aria-describedby="email" placeholder="example@domaine.fr" required aria-required="true" autocomplete="off"/>
+						<input type="email" id="email" name="email" aria-describedby="email" placeholder="example@domaine.fr" required aria-required="true" aria-labelledby="email" autocomplete="off"/>
 					</div>
 					<div class="formData" data-error="Veuillez respecter min 2 et max 255 caractères" data-error-visible="false" aria-invalid="false">
 						<label for="message">Votre message</label>
-						<textarea id="message" name="message" class="textarea" minlength="2" maxlength="255" rows="4" required aria-required="true" autocomplete="off"></textarea>
+						<textarea id="message" name="message" class="textarea" minlength="2" maxlength="255" rows="4" required aria-required="true" aria-labelledby="message" autocomplete="off"></textarea>
 					</div>
 					<button type="submit" id="submit_button" class="submit_button" aria-label="Envoyer">Envoyer</button>
 				</form>

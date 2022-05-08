@@ -147,8 +147,8 @@ modal.addEventListener("keydown", (e) => {
 submitButton.addEventListener("click", (event) => {
 	event.preventDefault(event);
 
-	const prenom = document.getElementById("first");
-	const nom = document.getElementById("last");
+	const prenom = document.getElementById("firstname");
+	const nom = document.getElementById("lastname");
 	const email = document.getElementById("email");
 	const message = document.getElementById("message");
 

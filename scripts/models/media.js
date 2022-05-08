@@ -26,12 +26,12 @@ class MediaPhoto {
 	get userGalleryCard() {
 		return `
       <figure class="mediacard" aria-label="${this._title}">
-        <img role="link" src="${this._directory}/${this._picture}" class="media_focus" tabindex="0" alt="${this._title}"/>
+        <img role="link" class="media_focus media_zoom" tabindex="0" src="${this._directory}/${this._picture}" tabindex="0" alt="${this._title} closeup view"/>
         <figcaption>
-          <h3 tabindex="0">${this._title}</h3>
+          <h3>${this._title}</h3>
           <div class="likesSection">
             <p class="likesNumber">${this._likes}</p>
-            <button tabindex="0" aria-label="Likes"><i class="fa fa-heart"></i></button>
+            <button tabindex="0" aria-label="likes"><i class="fa fa-heart"></i></button>
           </div>
         </figcaption>
       </figure>`;
@@ -61,13 +61,13 @@ class MediaMovie {
 	get userGalleryCard() {
 		return `
       <figure class="mediacard" aria-label="${this._title}">
-        <video role="link" tabindex="0" src="${this._directory}/${this._movie}" aria-label="${this._title}" class="media_focus" >
+        <video role="link" class="media_focus media_zoom" tabindex="0" src="${this._directory}/${this._movie}" aria-label="${this._title} closeup view" >
         </video>
         <figcaption>
-          <h3 tabindex="0">${this._title}</h3>
+          <h3>${this._title}</h3>
           <div class="likesSection">
             <p class="likesNumber">${this._likes}</p>
-            <button tabindex="0" aria-label="Likes"><i class="fa fa-heart"></i></button>
+            <button tabindex="0" aria-label="likes"><i class="fa fa-heart"></i></button>
           </div>
         </figcaption>
       </figure>

@@ -43,13 +43,6 @@
 	z-index: 11;
 }
 
-.lightbox_close:focus,
- .lightbox_next:focus,
-  .lightbox_previous:focus {
-    text-decoration: none;
-    outline: 3px solid #901C1C;   
-}
-
 .lightbox button {
 	opacity: 1;
 	cursor: pointer;
@@ -91,11 +84,6 @@
   color: #901C1C;
   line-height: 32px;
 	align-self: flex-start;
-}
-
-.lightbox_container_media h4:focus {
-	text-decoration: none;
-	outline: 3px solid #901C1C;   
 }
 
 .lightbox_loader {

@@ -34,11 +34,11 @@ export class Photographer {
 	get userCardDOM() {
 		return `      
         <article>
-					<a href="./photographer.html?id=${this._id}">
+					<a role="link" href="./photographer.html?id=${this._id}">
 	          <img class="photographer_zoom" src="assets/photographers/${this._picture}" alt="${this._name}"></img>
           	<h2 aria-label="${this._name}">${this._name}</h2>
 					</a>
-					<div role="paragraph" tabindex="0">
+					<div role="paragraph">
 	          <h3 class="location">${this.location}</h3>
   	        <p class="tagline">${this._tagline}</p>
     	      <p class="price">${this._price}€/jour</p>
@@ -51,8 +51,8 @@ export class Photographer {
 	get userData() {
 		return `
       <article class="profile">
-        <h1 tabindex="0">${this._name}</h1>
-				<div role="paragraph" tabindex="0">
+        <h1>${this._name}</h1>
+				<div role="paragraph">
 	        <h2 class="location">${this.location}</h2>
   	      <p class="tagline">${this._tagline}</p>
 				</div>
@@ -60,7 +60,7 @@ export class Photographer {
       <div class="contact">
         <button type="button" aria-haspopup="dialog" id="contact_button" class="contact_button" aria-label="contacter le photographe ${this._name}">Contactez-moi</button>
       </div>
-      <img src="assets/photographers/${this._picture}" alt="${this._name}" tabindex="0"></img>
+      <img src="assets/photographers/${this._picture}" alt="${this._name}"></img>
      `;
 	}
 
