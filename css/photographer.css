@@ -105,8 +105,8 @@ select {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
-  margin-right: 20px;
   column-gap: 50px;
+	margin: 0 20px 70px 0;
 }
 
 .mediacard {
@@ -184,8 +184,8 @@ select {
 	height: 89px;
 	margin: 0;
 	position: fixed;
-	bottom: -1%;
-	right: 3rem;
+	bottom: -2%;
+	right: 2%;
 	background-color: #db8876;
 	border-radius: 5px;
 	z-index: 5;
