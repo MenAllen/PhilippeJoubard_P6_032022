@@ -1,3 +1,15 @@
+/**
+ * Classe Photographer
+ *
+ * @Property (string) name - nom du photographe
+ * @property (number) id - id du photographe
+ * @Property (string) city - Ville du photographe
+ * @Property (string) country - Pays du photographe
+ * @Property (string) tagline - Phrase d'accroche du photographe
+ * @Property (number) price - Taux horaire du photographe
+ * @Property (string) picture - Portrait du photographe
+ */
+
 export class Photographer {
 	constructor(data) {
 		this._name = data.name;

@@ -4,6 +4,7 @@
  * @Property (string) url - image ou video actuellement affichée
  * @Property {HTMLElement} firstFocusableElement
  * @Property {HTMLElement} lastFocusableElement
+ * @Property {HTMLElement} link lien élément de retour
  */
 
 export class Lightbox {
@@ -36,6 +37,7 @@ export class Lightbox {
 	 *
 	 * @param {*} url de l'image ou la video
 	 * @param {*} images les images ou video pour la lightbox
+	 * @param {*} link l'element de retour à mémoriser pour le retour - focus
 	 */
 	constructor(url, images, link) {
 		this.element = this.buildDOM();
@@ -48,13 +50,13 @@ export class Lightbox {
 		this.initFocus();
 		this.ariaHide(false);
 
+		/* listener touches clavier */
 		document.addEventListener("keydown", this.onKeyDown);
 		document.addEventListener("keyup", this.onKeyUp);
 	}
 
 	/**
-	 * @param {*} url de l'image ou la video
-	 * @param {*} alt titre de l'image ou la video
+	 *
 	 * @returns {HTMLElement} element à afficher
 	 */
 	buildDOM() {
@@ -66,7 +68,7 @@ export class Lightbox {
         <button role="button" class="lightbox_close" aria-label="fermer le carroussel" ><i class="fa-solid fa-close fa-4x"></i></button>
         <button role="link" class="lightbox_next" aria-label="image suivante" ><i class="fa-solid fa-angle-right fa-4x"></i></button>
         <button role="link" class="lightbox_previous" aria-label="image précédente" ><i class="fa-solid fa-angle-left fa-4x"></i></button>
-        <div role="dialog" aria-label="image closeup view" class="lightbox_container"></div>`;
+        <div role="dialog" class="lightbox_container"></div>`;
 
 		dom.querySelector(".lightbox_close").addEventListener("click", this.close.bind(this));
 		dom.querySelector(".lightbox_next").addEventListener("click", this.next.bind(this));
@@ -77,7 +79,7 @@ export class Lightbox {
 
 	/**
 	 * Charger une nouvelle image ou video dans la lightbox
-	 * @param {*} url
+	 * @param {*} url de l'image ou la video
 	 */
 	loadImage(url) {
 		this.url = url;
@@ -114,17 +116,18 @@ export class Lightbox {
 
 		// Element legende sous image ou video
 		containerMedia.appendChild(legend);
-		
 	}
 
 	/**
-	 *  Initialisation des elements focusable
-	 *  pour naviguer en boucle
+	 *  Initialisation des elements focusables
+	 *  pour naviguer en boucle:
+	 *  	first -> image ou video
+	 *  	second -> suivante
+	 * 		third -> fermeture
+	 * 		last -> précédente
 	 */
 	initFocus() {
 		const focusableElements = document.querySelectorAll(".lightbox button");
-
-		console.log(focusableElements);
 
 		this.thirdFocusableElement = focusableElements[0];
 		this.secondFocusableElement = focusableElements[1];
@@ -135,6 +138,8 @@ export class Lightbox {
 
 	/**
 	 * accessibilité: gestion des aria-hidden
+	 * pour ignorer le main ou la light box seon les besoins
+	 *
 	 * @param {*} hideLightbox
 	 */
 	ariaHide(hideLightbox) {
@@ -168,7 +173,7 @@ export class Lightbox {
 	}
 
 	/**
-	 * Passer à l'image suivante de la galerie avec le focus
+	 * Passer à l'image suivante de la galerie
 	 * @param {MouseEvent | KeyboardEvent} e
 	 */
 	next(e) {
@@ -182,7 +187,7 @@ export class Lightbox {
 	}
 
 	/**
-	 * Passer à l'image précédente de la galerie avec le focus
+	 * Passer à l'image précédente de la galerie
 	 * @param {MouseEvent | KeyboardEvent} e
 	 */
 	prev(e) {
@@ -196,7 +201,7 @@ export class Lightbox {
 	}
 
 	/**
-	 * Gérer le focus tournant sur les 3 boutons avec Tab et Shiftkey
+	 * Gérer le focus tournant avec Tab et Shiftkey
 	 * Sortir du light box si 'Escape' au clavier
 	 * Passer à image ou video suivante ou précédente si 'ArrowRight' ou 'ArrowLeft'
 	 * @param {Keyboard event} e
@@ -217,12 +222,12 @@ export class Lightbox {
 				} else if (document.activeElement === this.thirdFocusableElement) {
 					this.secondFocusableElement.focus();
 				}
-			} else {
+			}	else {
 				// Sinon TabPressed seul
 				if (document.activeElement === this.lastFocusableElement) {
 					// Si on arrive au dernier element focusable, alors on remet le focus sur le premier
 					this.firstFocusableElement.focus();
-				} else if (document.activeElement === this.firstFocusableElement) {
+				}	else if (document.activeElement === this.firstFocusableElement) {
 					this.secondFocusableElement.focus();
 				} else if (document.activeElement === this.secondFocusableElement) {
 					this.thirdFocusableElement.focus();
@@ -233,19 +238,17 @@ export class Lightbox {
 		}
 	}
 
-/**
+	/**
 	 * Sortir du light box si 'Escape' ou 'Enter' sur closeButton au clavier
 	 * Passer à image ou video suivante ou précédente si 'ArrowRight' ou 'ArrowLeft'
 	 * @param {Keyboard event} e
 	 */
- onKeyUp(e) {
-
-	//	e.preventDefault();
+	onKeyUp(e) {
+		//	e.preventDefault();
 
 		switch (e.key) {
 			case "Escape":
 				this.close(e);
-//				this.close.bind(this);
 				break;
 			case "ArrowRight":
 				this.next(e);
@@ -265,5 +268,4 @@ export class Lightbox {
 			default:
 		}
 	}
-
 }

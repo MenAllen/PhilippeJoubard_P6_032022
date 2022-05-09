@@ -1,7 +1,8 @@
-// Traitement de l'ouverture et la fermeture de la modale et Controles du focus dans la modale:
-// le focus ne doit pas quitter la modale avec le TAB
+// Traitement de l'ouverture et la fermeture de la modale
+// et Controles du focus dans la modale:
+// 	le focus ne doit pas quitter la modale avec le TAB
 
-// Définir tous les éléments de la modale focusables
+// Initilisation de tous les éléments de la modale focusables
 const focusableElements = 'button, img, input, select, textarea, [tabindex]:not([tabindex="-1"])';
 const modal = document.querySelector("#contact_modal"); // select the modal by it's id
 
@@ -11,13 +12,10 @@ const focusableContent = modal.querySelectorAll(focusableElements);
 const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
 const submitButton = document.getElementById("submit_button");
 
-
-
 /**
  * Ouverture de la modale pour afficher le formulaire
  */
 export function displayModal() {
-
 	// Reset du formulaire pour vider les données éventuelles
 	const form = document.getElementById("formulaire");
 	form.reset();
@@ -60,7 +58,6 @@ export function displayModal() {
  * Fermeture de la modale pour quitter le formulaire
  */
 function closeModal() {
-
 	const modal = document.getElementById("contact_modal");
 	modal.style.display = "none";
 
@@ -82,34 +79,32 @@ function closeModal() {
  * Activation du listener sur keydown pour navigation dans le formulaire
  */
 modal.addEventListener("keydown", (e) => {
-
 	let isTabPressed = e.key === "Tab" || e.keyCode === 9;
 	let activeElementIndex = -1;
 
 	// Si fleches clavier up ou down
-	if ( e.key === "ArrowDown" || e.key === "ArrowUp") {
-
+	if (e.key === "ArrowDown" || e.key === "ArrowUp") {
 		// on identifie l'element actif dans le formulaire
-		for (let i=0; i < focusableContent.length; i++) {
+		for (let i = 0; i < focusableContent.length; i++) {
 			if (document.activeElement === focusableContent[i]) {
 				activeElementIndex = i;
 				break;
 			}
 		}
 
-		// On pointe l'element suivant pour y mettre le focus 
+		// On pointe l'element suivant pour y mettre le focus
 		if (e.key === "ArrowDown") {
-			if (activeElementIndex === focusableContent.length-1) {
+			if (activeElementIndex === focusableContent.length - 1) {
 				activeElementIndex = 0;
 			} else {
 				++activeElementIndex;
 			}
 		} else if (e.key === "ArrowUp") {
 			if (activeElementIndex === 0) {
-				activeElementIndex = focusableContent.length-1;
+				activeElementIndex = focusableContent.length - 1;
 			} else {
 				--activeElementIndex;
-			}		
+			}
 		}
 		focusableContent[activeElementIndex].focus();
 	}
@@ -138,10 +133,10 @@ modal.addEventListener("keydown", (e) => {
 			e.preventDefault();
 		}
 	}
-})
+});
 
 /**
- * Soumission du formulaire sur click boton envoyer
+ * Soumission du formulaire sur click bouton envoyer
  * et Affichage des données dans la console avant fermeture modale
  */
 submitButton.addEventListener("click", (event) => {
@@ -160,34 +155,26 @@ submitButton.addEventListener("click", (event) => {
 	} else {
 		if (prenom.validity.valid) {
 			prenom.parentElement.setAttribute("data-error-visible", "false");
-			prenom.parentElement.setAttribute("aria-invalid", "false");
 		} else {
 			prenom.parentElement.setAttribute("data-error-visible", "true");
-			prenom.parentElement.setAttribute("aria-invalid", "true");
 		}
 
 		if (nom.validity.valid) {
 			nom.parentElement.setAttribute("data-error-visible", "false");
-			prenom.parentElement.setAttribute("aria-invalid", "false");
 		} else {
 			nom.parentElement.setAttribute("data-error-visible", "true");
-			prenom.parentElement.setAttribute("aria-invalid", "true");
 		}
 
 		if (email.validity.valid) {
 			email.parentElement.setAttribute("data-error-visible", "false");
-			prenom.parentElement.setAttribute("aria-invalid", "false");
 		} else {
 			email.parentElement.setAttribute("data-error-visible", "true");
-			prenom.parentElement.setAttribute("aria-invalid", "true");
 		}
 
 		if (message.validity.valid) {
 			message.parentElement.setAttribute("data-error-visible", "false");
-			prenom.parentElement.setAttribute("aria-invalid", "false");
 		} else {
 			message.parentElement.setAttribute("data-error-visible", "true");
-			prenom.parentElement.setAttribute("aria-invalid", "true");
 		}
 	}
 });

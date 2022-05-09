@@ -9,12 +9,23 @@ import { getPhotographers } from "../utils/APIfetch.js";
 import { displayModal } from "../utils/contactForm.js";
 import { sortbyOption, readSelectedOption } from "../utils/sort.js";
 
-// Sélectionne le photographe visé par l'Id fourni
+/**
+ * Sélectionne le photographe visé par l'Id fourni
+ *
+ * @param {*} photographList Table des photographes
+ * @param {*} Id Id du photographe
+ * @returns
+ */
 function selectPhotograph(photographList, Id) {
 	return photographList.find((photograph) => photograph.id === Id);
 }
 
-// Affichage du header du photographe désigné par le paramètre id reçu
+/**
+ * Affichage du header de la page photographe
+ * avec le photographe désigné par le paramètre id reçu
+ *
+ * @param {*} photograph
+ */
 function displayPhotographHeader(photograph) {
 	// création d'une instance de Photographer et appel de userData
 	const photographHeader = document.querySelector(".photograph-header");
@@ -29,7 +40,12 @@ function displayPhotographHeader(photograph) {
 	document.title += photographModel.userTitle;
 }
 
-// Affichage de la galerie du photographe désigné par le paramètre id reçu
+/**
+ * Affichage de la galerie du photographe désigné par le paramètre id reçu
+ *
+ * @param {*} media
+ * @param {*} photograph
+ */
 function displayPhotographGallery(media, photograph) {
 	const photographGallery = document.querySelector(".photograph-gallery");
 
@@ -94,6 +110,9 @@ function displayPhotographGallery(media, photograph) {
 	});
 }
 
+/**
+ * Initialisation de la page photographe
+ */
 async function init() {
 	// Récupération de l'id x et de la liste des photographes via l'API
 	const identifier = parseInt(location.search.substring(1).split("&")[0].split("=")[1]);

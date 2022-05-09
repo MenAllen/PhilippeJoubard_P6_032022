@@ -1,4 +1,8 @@
-// Fetch récupère les données du fichier photographsers.json
+/**
+ * getPhotographers récupère les données du fichier photographsers.json par un fetch
+ *
+ * @returns
+ */
 export function getPhotographers() {
 	return fetch("./data/photographers.json")
 		.then((response) => response.json())

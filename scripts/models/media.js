@@ -1,11 +1,32 @@
-// Classe MediaPhoto pour afficher un gallery card avec photo
+/**
+ * Déclarations de classes
+ *
+ * 	Media
+ * 		@param élément media image et photo
+ *
+ * 	MediaPhoto
+ * 		@param élément media avec image
+ * 	MediaMovie
+ * 		@param élément média avec vidéo
+ *
+ */
+
+/**
+ * Classe MediaPhoto pour afficher un gallery card avec photo
+ *
+ * @Property (string) title - titre de la photo
+ * @Property (string) picture - image actuellement affichée
+ * @Property (number) likes - nombre de likes
+ * @property (number) id - id de la photo
+ * @Property (string) directory - répertoire de la photo
+ */
+
 class MediaPhoto {
 	constructor(data) {
 		this._title = data.title;
 		this._picture = data.image;
 		this._likes = data.likes;
 		this._id = data.id;
-		this._price = data.price;
 		this._directory = "";
 	}
 
@@ -38,7 +59,16 @@ class MediaPhoto {
 	}
 }
 
-// Classe MediaMovie pour afficher un gallery card avec video
+/**
+ * Classe MediaMovie pour afficher un gallery card avec video
+ *
+ * @Property (string) title - titre de la photo
+ * @Property (string) movie - video actuellement affichée
+ * @Property (number) likes - nombre de likes
+ * @property (number) id - id de la photo
+ * @Property (string) directory - répertoire de la photo
+ */
+
 class MediaMovie {
 	constructor(data) {
 		this._title = data.title;
@@ -75,7 +105,11 @@ class MediaMovie {
 	}
 }
 
-// On sélectionne la classe en fonction du type de média
+/**
+ * Classe Media pour appeler une classe photo ou video
+ *
+ * @Param () média item extrait du json
+ */
 export class Media {
 	constructor(data) {
 		// S'il s'agit d'une photo, alors on instancie une classe avec photo

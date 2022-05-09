@@ -1,5 +1,5 @@
 /**
- *
+ *Récupère l'option choisie dans le select
  * @returns [string] option choisie
  */
 export function readSelectedOption() {

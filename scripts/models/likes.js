@@ -36,6 +36,5 @@ export class Likes {
 				updateLikes(link, totalLikes);
 			})
 		);
-
 	}
 }
