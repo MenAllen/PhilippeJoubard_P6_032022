@@ -91,8 +91,8 @@ class MediaMovie {
 	get userGalleryCard() {
 		return `
       <figure class="mediacard" aria-label="${this._title}">
-        <video role="link" class="media_focus media_zoom" tabindex="0" src="${this._directory}/${this._movie}" aria-label="${this._title} closeup view" >
-        </video>
+				<video role="link" class="media_focus media_zoom" tabindex="0" src="${this._directory}/${this._movie}" aria-label="${this._title} closeup view" >
+      	</video>
         <figcaption>
           <h3>${this._title}</h3>
           <div class="likesSection">
