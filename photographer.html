@@ -11,13 +11,8 @@
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
 		<link rel="icon" type="image/png" href="assets/icons/favicon.png" />
 		<link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-			integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
+		<script src="https://kit.fontawesome.com/fe6a60c3cf.js" crossorigin="anonymous"></script>
+
 	</head>
 
 	<body>
@@ -60,19 +55,19 @@
 				<form id="formulaire" name="formulaire de contact" aria-label="formulaire de contact">
 					<div class="formData" data-error="Veuillez entrer au moins 2 caractères" data-error-visible="false">
 						<label for="firstname">Prénom</label>
-						<input type="text" id="firstname" name="firstname" minlength="2" required aria-required="true" aria-labelledby="firstname" autocomplete="off" />
+						<input type="text" id="firstname" name="firstname" minlength="2" required aria-required="true" aria-labelledby="firstname"/>
 					</div>
 					<div class="formData" data-error="Veuillez entrer au moins 2 caractères" data-error-visible="false">
 						<label for="lastname">Nom</label>
-						<input type="text" id="lastname" name="lastname" minlength="2" required aria-required="true" aria-labelledby="lastname" autocomplete="off" />
+						<input type="text" id="lastname" name="lastname" minlength="2" required aria-required="true" aria-labelledby="lastname"/>
 					</div>
 					<div class="formData" data-error="Veuillez respecter le format mail" data-error-visible="false">
 						<label for="email">E-mail</label>
-						<input type="email" id="email" name="email" aria-describedby="email" placeholder="example@domaine.fr" required aria-required="true" aria-labelledby="email" autocomplete="off" />
+						<input type="email" id="email" name="email" aria-describedby="email" placeholder="example@domaine.fr" required aria-required="true" aria-labelledby="email"/>
 					</div>
 					<div class="formData" data-error="Veuillez respecter min 2 et max 255 caractères" data-error-visible="false">
 						<label for="message">Votre message</label>
-						<textarea id="message" name="message" class="textarea" minlength="2" maxlength="255" rows="4" required aria-required="true" aria-labelledby="message" autocomplete="off"></textarea>
+						<textarea id="message" name="message" class="textarea" minlength="2" maxlength="255" rows="4" required aria-required="true" aria-labelledby="message"></textarea>
 					</div>
 					<button type="submit" id="submit_button" class="submit_button" aria-label="Envoyer">Envoyer</button>
 				</form>
